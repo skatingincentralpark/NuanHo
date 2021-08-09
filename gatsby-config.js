@@ -3,5 +3,5 @@ module.exports = {
     siteUrl: "https://www.yourdomain.tld",
     title: "artist-site",
   },
-  plugins: [],
+  plugins: [`gatsby-plugin-netlify-cms`],
 };
