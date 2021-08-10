@@ -4,9 +4,9 @@ import { Link } from "gatsby";
 
 import Layout from "../components/layouts/layout";
 
-const NotFoundPage = () => {
+const NotFoundPage = (props) => {
   return (
-    <Layout>
+    <Layout location={props.location}>
       <p>There's nothing here.</p>
       <Link to="/">Go back</Link>
     </Layout>
