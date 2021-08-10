@@ -1,19 +1,23 @@
 import * as React from "react";
-import { graphql } from "gatsby";
 
+import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
+import Layout from "../components/layouts/layout";
 
 const IndexPage = (props) => {
   return (
-    <div>
-      {props.data.portfolio.edges.map((edge) => (
-        <GatsbyImage
-          image={getImage(edge.node.frontmatter.image.childImageSharp)}
-          alt="lol"
-          key={edge.node.id}
-        />
-      ))}
-    </div>
+    <Layout location={props.location}>
+      <div className="gallery">
+        {props.data.portfolio.edges.map((edge) => (
+          <GatsbyImage
+            image={getImage(edge.node.frontmatter.image.childImageSharp)}
+            alt="lol"
+            key={edge.node.id}
+          />
+        ))}
+      </div>
+    </Layout>
   );
 };
 
