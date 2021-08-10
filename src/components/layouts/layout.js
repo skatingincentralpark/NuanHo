@@ -10,7 +10,7 @@ const Layout = (props) => {
     <Fragment>
       <Header location={props.location} />
       <main>{props.children}</main>
-      <footer>© 2021 Goriot.</footer>
+      <footer>© 2021 Naked Lunch.</footer>
     </Fragment>
   );
 };
