@@ -93,36 +93,8 @@ footer {
 }
 
 /* archive */
-.archive-gallery {
-  padding: 5vh 3vw 0 3vw;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2em;
-}
-.archive-gallery-item div:first-child:hover {
-  filter: invert(1) sepia(0.5);
-  transform: translateX(5px);
-  transition: 0s;
-}
-.archive-gallery-item div:first-child {
-  transition: 0.2s;
-}
-.archive-gallery-item {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2em;
-}
 .archive-btns {
   margin: 2vh 0 0 2vw;
-}
-.archive-info small {
-  color: gray;
-}
-.archive-title {
-  font-size: 1.2rem;
-}
-.archive-description {
-  font-style: italic;
 }
 
 /* lightbox */
