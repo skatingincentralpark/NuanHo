@@ -6,9 +6,10 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "portfolio"
-    label: "Portfolio"
-    folder: "content/portfolio"
+  - name: "artwork"
+    label: "Artwork"
+    description: "Upload all your work here that you'd like to display in the archive.  For 'featured' works on the home page, please set true or false for 'Featured Image'."
+    folder: "content/artwork"
     create: true
     slug: "index"
     media_folder: ""
@@ -21,3 +22,15 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
+      - { label: "Featured Image", name: "featuredimage", widget: "boolean" }
+      - {
+          label: "Order of Featured Image",
+          name: "orderoffeaturedimage",
+          widget: "number",
+          required: false,
+        }
+      - { label: "Featured Image Test Object", name: "featuredimageobject", widget: "object", 
+            fields: 
+              - {label: "isfeaturedimage", name: "test", widget: "boolean"} 
+              - {label: "orderofthefeaturedimage", name: "test2", widget: "number"}
+        }

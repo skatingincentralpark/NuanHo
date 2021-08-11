@@ -23,7 +23,10 @@ const IndexPage = (props) => {
 
 export const query = graphql`
   query PortfolioQuery {
-    portfolio: allMarkdownRemark {
+    portfolio: allMarkdownRemark(
+      filter: { frontmatter: { featuredimage: { eq: true } } }
+      sort: { fields: frontmatter___orderoffeaturedimage, order: ASC }
+    ) {
       edges {
         node {
           id
@@ -37,7 +40,7 @@ export const query = graphql`
                 gatsbyImageData(
                   blurredOptions: { width: 3 }
                   quality: 100
-                  placeholder: BLURRED
+                  placeholder: DOMINANT_COLOR
                 )
               }
             }

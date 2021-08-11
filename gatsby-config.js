@@ -20,7 +20,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `portfolio`,
-        path: `${__dirname}/content/portfolio`,
+        path: `${__dirname}/content/artwork`,
       },
     },
   ],
