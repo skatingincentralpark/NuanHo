@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layouts/layout";
+import SEO from "../components/seo/seo";
 import Archive from "../components/archive/archive";
 
 const ArchivePage = (props) => {
@@ -21,6 +22,7 @@ const ArchivePage = (props) => {
 
   return (
     <Layout location={props.location}>
+      <SEO title="Archive" description="Archive of past artworks by Nuan Ho." />
       <div className="archive-btns">
         <button className="btn" onClick={handleClick} value="">
           [All]
