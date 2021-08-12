@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
-    title: "Artist Site",
-    description: "Site for artists",
+    title: "Nuan Ho",
+    description: "Official website for the Australian artist Nuan Ho.",
     author: "Nuan Ho",
-    copyright: "this website is copyright 2021 naked lunch",
+    copyright: "2021 Nuan Ho and Naked Lunch",
     keywords: `art,
     painting,
     australia,
@@ -30,8 +30,22 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `portfolio`,
-        path: `${__dirname}/content/artwork`,
+        name: `archivedartwork`,
+        path: `${__dirname}/content/archived-artwork`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `featuredartwork`,
+        path: `${__dirname}/content/featured-artwork`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `about`,
+        path: `${__dirname}/content/about`,
       },
     },
   ],

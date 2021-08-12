@@ -10,7 +10,7 @@ const Archive = (props) => {
         <div className={classes.archiveGalleryItem} key={edge.node.id}>
           <GatsbyImage
             image={getImage(edge.node.frontmatter.image.childImageSharp)}
-            alt="lol"
+            alt={edge.node.frontmatter.title}
             data-index={i}
           />
           <div className={classes.archiveInfo}>
@@ -19,16 +19,11 @@ const Archive = (props) => {
               {edge.node.frontmatter.title}
             </p>
             <p className={classes.archiveDescription}>
-              Oil on Canvas
+              {edge.node.frontmatter.medium}
               <br />
-              {edge.node.frontmatter.description}
+              {edge.node.frontmatter.size}
             </p>
-            <small>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              fuga nam, voluptatibus quasi sed suscipit illum excepturi
-              exercitationem possimus, autem repellendus minima! Eius accusamus,
-              modi magnam ex maiores assumenda officia!
-            </small>
+            <small>{edge.node.frontmatter.description}</small>
           </div>
         </div>
       ))}

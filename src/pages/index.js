@@ -11,10 +11,10 @@ const IndexPage = (props) => {
     <Layout location={props.location}>
       <Seo title="Home" />
       <div className="gallery">
-        {props.data.portfolio.edges.map((edge) => (
+        {props.data.featuredArtwork.edges.map((edge) => (
           <GatsbyImage
             image={getImage(edge.node.frontmatter.image.childImageSharp)}
-            alt="lol"
+            alt={edge.node.frontmatter.title}
             key={edge.node.id}
           />
         ))}
@@ -24,26 +24,25 @@ const IndexPage = (props) => {
 };
 
 export const query = graphql`
-  query PortfolioQuery {
-    portfolio: allMarkdownRemark(
-      filter: { frontmatter: { featuredimage: { eq: true } } }
-      sort: { fields: frontmatter___orderoffeaturedimage, order: ASC }
+  query FeaturedArtworkQuery {
+    featuredArtwork: allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          image: { sourceInstanceName: { eq: "featuredartwork" } }
+        }
+      }
+      sort: { fields: frontmatter___order, order: ASC }
     ) {
       edges {
         node {
           id
           frontmatter {
-            date(formatString: "DD MM YYYY HH:MM")
-            description
             title
+            order
             image {
               publicURL
               childImageSharp {
-                gatsbyImageData(
-                  blurredOptions: { width: 3 }
-                  quality: 100
-                  placeholder: DOMINANT_COLOR
-                )
+                gatsbyImageData(quality: 100, placeholder: DOMINANT_COLOR)
               }
             }
           }

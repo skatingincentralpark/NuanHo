@@ -76,7 +76,9 @@ footer {
   background-color: whitesmoke;
   z-index: 98;
   top: 0;
+  left: 0;
   height: 100%;
+  width: 100%;
   padding: 20vh 20vw;
 }
 .header-info .show {
@@ -86,9 +88,10 @@ footer {
 /* home */
 .gallery {
   padding-top: 5vh;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0.25em;
+  /* display: grid; */
+  /* grid-template-columns: repeat(6, 1fr);
+  gap: 0.25em; */
+  display: flex;
 }
 .gallery div {
   height: 70vh;
@@ -109,6 +112,27 @@ footer {
   height: 100%;
   top: 0;
   background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* artist text */
+.artist-text {
+  position: fixed;
+  bottom: 4vh;
+  left: 2vw;
+  mix-blend-mode: difference;
+}
+.artist-text h1,
+.artist-text h2,
+.artist-text p {
+  font-weight: 300;
+  margin: 0 0 0.25em 0;
+  font-family: "Courier New", Courier, monospace;
+}
+.artist-text h1 {
+  font-size: 2.5rem;
+}
+.artist-text p {
+  margin: 0;
 }
 
 @media only screen and (min-width: 796px) {

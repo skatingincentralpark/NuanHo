@@ -33,23 +33,26 @@ const ArchivePage = (props) => {
 export const query = graphql`
   query ArchiveQuery {
     archive: allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          image: { sourceInstanceName: { eq: "archivedartwork" } }
+        }
+      }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       edges {
         node {
           id
           frontmatter {
+            title
             date(formatString: "DD/MM/YYYY")
             description
-            title
+            medium
+            size
             image {
               publicURL
               childImageSharp {
-                gatsbyImageData(
-                  blurredOptions: { width: 3 }
-                  quality: 30
-                  placeholder: DOMINANT_COLOR
-                )
+                gatsbyImageData(quality: 30, placeholder: DOMINANT_COLOR)
               }
             }
           }
@@ -57,6 +60,11 @@ export const query = graphql`
       }
     }
     archiveFullSize: allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          image: { sourceInstanceName: { eq: "archivedartwork" } }
+        }
+      }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       edges {
@@ -69,11 +77,7 @@ export const query = graphql`
             image {
               publicURL
               childImageSharp {
-                gatsbyImageData(
-                  blurredOptions: { width: 2 }
-                  width: 800
-                  placeholder: BLURRED
-                )
+                gatsbyImageData(width: 800, placeholder: BLURRED)
               }
             }
           }

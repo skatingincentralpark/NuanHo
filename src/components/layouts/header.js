@@ -2,7 +2,22 @@ import React, { useState } from "react";
 
 import { Link } from "gatsby";
 
+import HeaderPopup from "./headerPopup";
+
 const Header = ({ location }) => {
+  // const { site } = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       site {
+  //         siteMetadata {
+  //           title
+  //           description
+  //         }
+  //       }
+  //     }
+  //   `
+  // );
+
   const [showNav, setShowNav] = useState(false);
 
   const showNavHandler = () => {
@@ -25,30 +40,7 @@ const Header = ({ location }) => {
           </Link>
         )}
       </header>
-      {showNav && (
-        <div className="header-info">
-          <p>
-            E: charles.zhao5461@gmail.com
-            <br />
-            IG: @portrait_of_innocent_x
-            <br />
-            Location: Sydney, Australia
-          </p>
-          <hr />
-          <p>
-            Currently under design for a Structural Engineer with a hobby for
-            working on cars. The generous height of the car workshop is born
-            from the scissor car lift requirement, creating a “jump cut“
-            connection between the two functions of the home; 1. private
-            dwelling & 2. polyvalent car workshop.
-            <br />
-            <br />
-            The three studies are projections of three different structural
-            directions forward; consider them mise-en-scene projections of
-            construction still images.
-          </p>
-        </div>
-      )}
+      {showNav && <HeaderPopup />}
     </>
   );
 };
