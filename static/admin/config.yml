@@ -37,14 +37,16 @@ collections:
           name: "featuredimageobject",
           widget: "object",
           fields:
-            {
-              label: "Featured Image",
-              name: "isfeaturedimage",
-              widget: "boolean",
-            },
-          {
-            label: "Order of Featured Image",
-            name: "orderofthefeaturedimage",
-            widget: "number",
-          },
+            [
+              {
+                label: "Featured Image",
+                name: "isfeaturedimage",
+                widget: "boolean",
+              },
+              {
+                label: "Order of Featured Image",
+                name: "orderofthefeaturedimage",
+                widget: "number",
+              },
+            ],
         }
