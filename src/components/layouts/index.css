@@ -34,7 +34,7 @@ button {
   font-size: 1rem;
   letter-spacing: 0;
   padding: 0;
-  margin-right: 1.5em;
+  margin: 0 1.5em 0.5em 0;
   cursor: pointer;
 }
 
@@ -86,15 +86,12 @@ footer {
 /* home */
 .gallery {
   padding-top: 5vh;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.25em;
 }
 .gallery div {
   height: 70vh;
-}
-
-/* archive */
-.archive-btns {
-  margin: 2vh 0 0 2vw;
 }
 
 /* lightbox */
@@ -115,6 +112,9 @@ footer {
 }
 
 @media only screen and (min-width: 796px) {
+  .gallery {
+    gap: 0;
+  }
 }
 
 @media only screen and (min-width: 1499px) {

@@ -23,6 +23,12 @@ const Archive = (props) => {
               <br />
               {edge.node.frontmatter.description}
             </p>
+            <small>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+              fuga nam, voluptatibus quasi sed suscipit illum excepturi
+              exercitationem possimus, autem repellendus minima! Eius accusamus,
+              modi magnam ex maiores assumenda officia!
+            </small>
           </div>
         </div>
       ))}

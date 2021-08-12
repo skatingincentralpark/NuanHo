@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { graphql } from "gatsby";
 
 import Layout from "../components/layouts/layout";
-import SEO from "../components/seo/seo";
+import Seo from "../components/seo/seo";
 import Archive from "../components/archive/archive";
+import YearNavigation from "../components/archive/yearNavigation";
 
 const ArchivePage = (props) => {
   const allImages = props.data.archive.edges;
@@ -22,18 +23,8 @@ const ArchivePage = (props) => {
 
   return (
     <Layout location={props.location}>
-      <SEO title="Archive" description="Archive of past artworks by Nuan Ho." />
-      <div className="archive-btns">
-        <button className="btn" onClick={handleClick} value="">
-          [All]
-        </button>
-        <button className="btn" onClick={handleClick} value="2021">
-          [2021]
-        </button>
-        <button className="btn" onClick={handleClick} value="2020">
-          [2020]
-        </button>
-      </div>
+      <Seo title="Archive" description="Archive of past artworks by Nuan Ho." />
+      <YearNavigation handleClick={handleClick} />
       <Archive data={data} />
     </Layout>
   );
@@ -41,12 +32,14 @@ const ArchivePage = (props) => {
 
 export const query = graphql`
   query ArchiveQuery {
-    archive: allMarkdownRemark {
+    archive: allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       edges {
         node {
           id
           frontmatter {
-            date(formatString: "DD MM YYYY HH:MM")
+            date(formatString: "DD/MM/YYYY")
             description
             title
             image {
@@ -63,12 +56,14 @@ export const query = graphql`
         }
       }
     }
-    archiveFullSize: allMarkdownRemark {
+    archiveFullSize: allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       edges {
         node {
           id
           frontmatter {
-            date(formatString: "DD MM YYYY HH:MM")
+            date(formatString: "DD MM YYYY")
             description
             title
             image {
@@ -76,7 +71,7 @@ export const query = graphql`
               childImageSharp {
                 gatsbyImageData(
                   blurredOptions: { width: 2 }
-                  quality: 100
+                  width: 800
                   placeholder: BLURRED
                 )
               }

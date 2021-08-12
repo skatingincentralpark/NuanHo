@@ -3,7 +3,7 @@
   padding: 5vh 3vw 0 3vw;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2em;
+  gap: 4em 2em;
 }
 /* hover and transitions */
 .archiveGalleryItem div:first-child:hover {

@@ -4,12 +4,12 @@ import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layouts/layout";
-import SEO from "../components/seo/seo";
+import Seo from "../components/seo/seo";
 
 const IndexPage = (props) => {
   return (
     <Layout location={props.location}>
-      <SEO title="Home" />
+      <Seo title="Home" />
       <div className="gallery">
         {props.data.portfolio.edges.map((edge) => (
           <GatsbyImage

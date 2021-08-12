@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function SEO({ description, lang, meta, title }) {
+function Seo({ description, lang, meta, title, pathname }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -14,16 +14,17 @@ function SEO({ description, lang, meta, title }) {
             author
             keywords
             image
+            siteUrl
           }
         }
       }
     `
   );
 
-  // takes description as prop from page or defaults to site description
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata.title;
   const image = site.siteMetadata.image;
+  const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
 
   return (
     <Helmet
@@ -32,6 +33,16 @@ function SEO({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      link={
+        canonical
+          ? [
+              {
+                rel: "canonical",
+                href: canonical,
+              },
+            ]
+          : []
+      }
       meta={[
         {
           name: `description`,
@@ -58,6 +69,10 @@ function SEO({ description, lang, meta, title }) {
           content: image,
         },
         {
+          property: `og:image:alt`,
+          content: "Art by Nuan Ho",
+        },
+        {
           name: `twitter:creator`,
           content: site.siteMetadata.author,
         },
@@ -78,18 +93,19 @@ function SEO({ description, lang, meta, title }) {
   );
 }
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
 };
 
-SEO.propTypes = {
+Seo.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
   image: PropTypes.string,
+  pathname: PropTypes.string,
 };
 
-export default SEO;
+export default Seo;

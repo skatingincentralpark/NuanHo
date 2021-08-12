@@ -1,0 +1,13 @@
+/* archive */
+.archiveBtns {
+  margin: 2vh 150px 0 2vw;
+  position: fixed;
+  mix-blend-mode: difference;
+  z-index: 97;
+}
+.archiveBtnsMore {
+  display: inline;
+}
+.archiveBtnsMoreDropdown {
+  display: inline;
+}
