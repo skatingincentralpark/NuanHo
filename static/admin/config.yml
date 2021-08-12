@@ -29,8 +29,22 @@ collections:
           widget: "number",
           required: false,
         }
-      - { label: "Featured Image Test Object", name: "featuredimageobject", widget: "object", 
-            fields: 
-              - {label: "isfeaturedimage", name: "test", widget: "boolean"} 
-              - {label: "orderofthefeaturedimage", name: "test2", widget: "number"}
+        ##############################
+        # JUST GOTTA FIX UP THE OBJECT CONFIGURATION
+        ##############################
+      - {
+          label: "Featured Image Test Object",
+          name: "featuredimageobject",
+          widget: "object",
+          fields:
+            {
+              label: "Featured Image",
+              name: "isfeaturedimage",
+              widget: "boolean",
+            },
+          {
+            label: "Order of Featured Image",
+            name: "orderofthefeaturedimage",
+            widget: "number",
+          },
         }
