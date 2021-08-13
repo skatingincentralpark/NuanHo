@@ -12,6 +12,11 @@ body {
   min-height: 100vh;
 }
 
+/* highlight */
+::selection {
+  background: rgb(176, 164, 192);
+}
+
 /* scrollbar */
 body::-webkit-scrollbar {
   width: 7px;
@@ -59,7 +64,7 @@ header {
   top: 2vh;
   right: 2vw;
   mix-blend-mode: difference;
-  z-index: 99;
+  z-index: 97;
 }
 header a {
   background-color: white;
@@ -74,7 +79,7 @@ footer {
 .header-info {
   position: fixed;
   background-color: whitesmoke;
-  z-index: 98;
+  z-index: 96;
   top: 0;
   left: 0;
   height: 100%;
@@ -92,26 +97,10 @@ footer {
   /* grid-template-columns: repeat(6, 1fr);
   gap: 0.25em; */
   display: flex;
+  gap: 0.25em;
 }
 .gallery div {
   height: 70vh;
-}
-
-/* lightbox */
-.lightbox {
-  position: fixed;
-  right: 40%;
-  top: 20%;
-  z-index: 98;
-  width: 20vw;
-}
-.backdrop {
-  position: fixed;
-  z-index: 97;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.9);
 }
 
 /* artist text */

@@ -1,33 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
+import Lightbox from "../lightbox/lightbox";
 import * as classes from "./archive.module.css";
 
 const Archive = (props) => {
+  const [currIndex, setCurrIndex] = useState(0);
+  const [showLightbox, setShowLightbox] = useState(false);
+
+  const currIndexHandler = (e) => {
+    setCurrIndex(e.target.getAttribute("data-index"));
+    setShowLightbox(true);
+  };
+
+  const increaseCurrIndexHandler = () => {
+    if (currIndex === props.fullSizeData.length - 1) {
+      setCurrIndex(0);
+    } else {
+      setCurrIndex((prev) => parseInt(prev) + 1);
+      console.log(currIndex);
+    }
+  };
+  const decreaseCurrIndexHandler = () => {
+    if (currIndex === 0) {
+      setCurrIndex(props.fullSizeData.length - 1);
+    } else {
+      setCurrIndex((prev) => parseInt(prev) - 1);
+    }
+  };
+
+  const hideLightboxHandler = () => {
+    setShowLightbox(false);
+  };
+
   return (
-    <div className={classes.archiveGallery}>
-      {props.data.map((edge, i) => (
-        <div className={classes.archiveGalleryItem} key={edge.node.id}>
-          <GatsbyImage
-            image={getImage(edge.node.frontmatter.image.childImageSharp)}
-            alt={edge.node.frontmatter.title}
-            data-index={i}
-          />
-          <div className={classes.archiveInfo}>
-            <small>{edge.node.frontmatter.date}</small>
-            <p className={classes.archiveTitle}>
-              {edge.node.frontmatter.title}
-            </p>
-            <p className={classes.archiveDescription}>
-              {edge.node.frontmatter.medium}
-              <br />
-              {edge.node.frontmatter.size}
-            </p>
-            <small>{edge.node.frontmatter.description}</small>
-          </div>
+    <>
+      {props.fullSizeData && showLightbox && (
+        <Lightbox
+          currIndex={currIndex}
+          fullSizeData={props.fullSizeData}
+          increase={increaseCurrIndexHandler}
+          decrease={decreaseCurrIndexHandler}
+          hide={hideLightboxHandler}
+        />
+      )}
+
+      {props.data && (
+        <div className={classes.archiveGallery}>
+          {props.data.map((edge, i) => (
+            <div className={classes.archiveGalleryItem} key={edge.node.id}>
+              <GatsbyImage
+                image={getImage(edge.node.frontmatter.image.childImageSharp)}
+                alt={edge.node.frontmatter.title}
+                data-index={i}
+                onClick={currIndexHandler}
+                // onClick={showLightboxHandler}
+              />
+              <div className={classes.archiveInfo}>
+                <small>{edge.node.frontmatter.date}</small>
+                <p className={classes.archiveTitle}>
+                  {edge.node.frontmatter.title}
+                </p>
+                <p className={classes.archiveDescription}>
+                  {edge.node.frontmatter.medium}
+                  <br />
+                  {edge.node.frontmatter.size}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      )}
+    </>
   );
 };
 

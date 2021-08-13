@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -7,18 +7,30 @@ import Layout from "../components/layouts/layout";
 import Seo from "../components/seo/seo";
 
 const IndexPage = (props) => {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    let imgArr = [];
+
+    props.data.featuredArtwork.edges.map((edge) => imgArr.push(edge));
+
+    setImages(imgArr);
+  }, [props.data.featuredArtwork.edges]);
+
   return (
     <Layout location={props.location}>
       <Seo title="Home" />
-      <div className="gallery">
-        {props.data.featuredArtwork.edges.map((edge) => (
-          <GatsbyImage
-            image={getImage(edge.node.frontmatter.image.childImageSharp)}
-            alt={edge.node.frontmatter.title}
-            key={edge.node.id}
-          />
-        ))}
-      </div>
+      {props.data && (
+        <div className="gallery">
+          {images.map((edge) => (
+            <GatsbyImage
+              image={getImage(edge.node.frontmatter.image.childImageSharp)}
+              alt={edge.node.frontmatter.title}
+              key={edge.node.id}
+            />
+          ))}
+        </div>
+      )}
     </Layout>
   );
 };

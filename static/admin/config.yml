@@ -25,7 +25,6 @@ collections:
           widget: "datetime",
           time_format: false,
         }
-      - { label: "Description", name: "description", widget: "string" }
       - { label: "Medium", name: "medium", widget: "string" }
       - { label: "Size", name: "size", widget: "string" }
       - {

@@ -17,10 +17,10 @@
 }
 /* single item */
 .archiveGalleryItem {
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: flex-end; */
-  display: grid;
+  justify-content: flex-end;
+  /* display: grid; */
   /* grid-template-columns: repeat(2, 1fr); */
   gap: 2em;
 }
@@ -47,13 +47,13 @@
 
 @media screen and (min-width: 769px) {
   .archiveGallery {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
 @media only screen and (min-width: 1199px) {
   .archiveGallery {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
   }
 }
 

@@ -3,7 +3,7 @@
   margin: 2vh 150px 0 2vw;
   position: fixed;
   mix-blend-mode: difference;
-  z-index: 97;
+  z-index: 95;
 }
 .archiveBtnsMore {
   display: inline;

@@ -8,24 +8,36 @@ import Archive from "../components/archive/archive";
 import YearNavigation from "../components/archive/yearNavigation";
 
 const ArchivePage = (props) => {
-  const allImages = props.data.archive.edges;
-  const [data, setData] = useState(allImages);
+  const [data, setData] = useState([]);
+  const [fullSizeData, setFullSizeData] = useState([]);
+
+  useEffect(() => {
+    const allImages = props.data.archive.edges;
+    const allFullSizeImages = props.data.archiveFullSize.edges;
+
+    setData(allImages);
+    setFullSizeData(allFullSizeImages);
+  }, [props.data.archive.edges, props.data.archiveFullSize.edges]);
 
   const handleClick = (e) => {
     const filterQuery = e.target.value;
 
-    const filteredData = allImages.filter((image) => {
+    const filteredData = data.filter((image) => {
+      return image.node.frontmatter.date.includes(filterQuery);
+    });
+    const filteredFullSizeData = fullSizeData.filter((image) => {
       return image.node.frontmatter.date.includes(filterQuery);
     });
 
     setData(filteredData);
+    setFullSizeData(filteredFullSizeData);
   };
 
   return (
     <Layout location={props.location}>
       <Seo title="Archive" description="Archive of past artworks by Nuan Ho." />
       <YearNavigation handleClick={handleClick} />
-      <Archive data={data} />
+      <Archive data={data} fullSizeData={fullSizeData} />
     </Layout>
   );
 };
@@ -46,7 +58,6 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD/MM/YYYY")
-            description
             medium
             size
             image {
@@ -72,12 +83,11 @@ export const query = graphql`
           id
           frontmatter {
             date(formatString: "DD MM YYYY")
-            description
             title
             image {
               publicURL
               childImageSharp {
-                gatsbyImageData(width: 800, placeholder: BLURRED)
+                gatsbyImageData(quality: 70, placeholder: NONE)
               }
             }
           }
