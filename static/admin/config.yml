@@ -39,6 +39,9 @@ collections:
     folder: "content/featured-artwork"
     create: true
     slug: "index"
+    media_folder: ""
+    public_folder: ""
+    path: "{{title}}/index"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - {
@@ -53,6 +56,9 @@ collections:
     folder: "content/about"
     create: true
     slug: "index"
+    media_folder: ""
+    public_folder: ""
+    path: "about/index"
     fields:
       - { label: "Email", name: "email", widget: "string" }
       - { label: "Instagram", name: "instagram", widget: "string" }
