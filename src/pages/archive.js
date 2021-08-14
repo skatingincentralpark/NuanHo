@@ -57,7 +57,7 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "DD/MM/YYYY")
+            date(formatString: "YYYY")
             medium
             size
             image {
@@ -82,7 +82,7 @@ export const query = graphql`
         node {
           id
           frontmatter {
-            date(formatString: "DD MM YYYY")
+            date(formatString: "YYYY")
             title
             image {
               publicURL
