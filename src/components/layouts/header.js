@@ -5,19 +5,6 @@ import { Link } from "gatsby";
 import HeaderPopup from "./headerPopup";
 
 const Header = ({ location }) => {
-  // const { site } = useStaticQuery(
-  //   graphql`
-  //     query {
-  //       site {
-  //         siteMetadata {
-  //           title
-  //           description
-  //         }
-  //       }
-  //     }
-  //   `
-  // );
-
   const [showNav, setShowNav] = useState(false);
 
   const showNavHandler = () => {

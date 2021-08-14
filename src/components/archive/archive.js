@@ -18,7 +18,6 @@ const Archive = (props) => {
       setCurrIndex(0);
     } else {
       setCurrIndex((prev) => parseInt(prev) + 1);
-      console.log(currIndex);
     }
   };
   const decreaseCurrIndexHandler = () => {

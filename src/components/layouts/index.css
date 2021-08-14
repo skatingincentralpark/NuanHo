@@ -116,7 +116,10 @@ footer {
   position: fixed;
   bottom: 4vh;
   left: 2vw;
-  /* mix-blend-mode: difference; */
+  z-index: 96;
+}
+.z-index {
+  z-index: 99;
 }
 .artist-text h1,
 .artist-text h2,

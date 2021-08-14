@@ -36,8 +36,6 @@ const ArchivePage = (props) => {
     setFullSizeData(filteredFullSizeData);
   };
 
-  console.log(data);
-
   return (
     <Layout location={props.location}>
       <Seo title="Archive" description="Archive of past artworks by Nuan Ho." />
@@ -88,6 +86,8 @@ export const query = graphql`
           id
           frontmatter {
             date(formatString: "YYYY")
+            medium
+            size
             title
             image {
               publicURL

@@ -3,6 +3,8 @@ import React from "react";
 import * as classes from "./lightbox.module.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
+import LightboxInfo from "./lightboxInfo";
+
 const Lightbox = (props) => {
   const handleKeyPress = (event) => {
     if (event.key === "37") {
@@ -36,7 +38,9 @@ const Lightbox = (props) => {
           alt={props.fullSizeData[props.currIndex].node.frontmatter.title}
         />
       </div>
-
+      <LightboxInfo
+        frontmatter={props.fullSizeData[props.currIndex].node.frontmatter}
+      />
       <div className={classes.backdrop} />
     </>
   );
