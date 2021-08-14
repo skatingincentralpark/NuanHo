@@ -60,6 +60,7 @@ collections:
     public_folder: ""
     path: "about/index"
     fields:
+      - { label: "Title", name: "title", widget: "string" }
       - { label: "Email", name: "email", widget: "string" }
       - { label: "Instagram", name: "instagram", widget: "string" }
       - { label: "Location", name: "location", widget: "string" }

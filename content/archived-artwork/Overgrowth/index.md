@@ -1,7 +1,7 @@
 ---
-title: Overgrowth with Figure
-date: 2021-01-01
+title: Overgrowth
+date: 2021-01-01T03:23:23.152Z
 medium: Oil on Canvas
-size: 50cm x 40cm
-image: Overgrowth with Figure.jpg
+size: 50cmx40cm
+image: overgrowth.jpg
 ---

@@ -39,7 +39,6 @@ const YearNavigation = (props) => {
   const showMoreYearsHandler = (e) => {
     e.preventDefault();
     setShowYears((prev) => !prev);
-    console.log(showYears);
   };
 
   return (

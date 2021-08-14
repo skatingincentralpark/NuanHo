@@ -54,6 +54,7 @@ const Archive = (props) => {
                 alt={edge.node.frontmatter.title}
                 data-index={i}
                 onClick={currIndexHandler}
+                // className={}
                 // onClick={showLightboxHandler}
               />
               <div className={classes.archiveInfo}>

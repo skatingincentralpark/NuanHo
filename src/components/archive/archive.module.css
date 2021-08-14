@@ -20,12 +20,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  /* display: grid; */
-  /* grid-template-columns: repeat(2, 1fr); */
-  gap: 2em;
+  gap: 1.5em;
+  /* display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2em; */
 }
 .archiveInfo {
-  justify-self: first baseline;
 }
 
 /* typography */
@@ -34,11 +34,17 @@
 }
 .archiveTitle {
   font-size: 1.2rem;
+  min-height: 4.5em;
 }
 .archiveDescription {
   font-style: italic;
 }
 
+@media only screen and (min-width: 366px) {
+  .archiveTitle {
+    min-height: 3em;
+  }
+}
 @media only screen and (min-width: 596px) {
   .archiveGallery {
     grid-template-columns: repeat(4, 1fr);

@@ -22,16 +22,21 @@ const ArchivePage = (props) => {
   const handleClick = (e) => {
     const filterQuery = e.target.value;
 
-    const filteredData = data.filter((image) => {
-      return image.node.frontmatter.date.includes(filterQuery);
+    const allImages = props.data.archive.edges;
+    const allFullSizeImages = props.data.archiveFullSize.edges;
+
+    const filteredData = allImages.filter((edge) => {
+      return edge.node.frontmatter.date.includes(filterQuery);
     });
-    const filteredFullSizeData = fullSizeData.filter((image) => {
-      return image.node.frontmatter.date.includes(filterQuery);
+    const filteredFullSizeData = allFullSizeImages.filter((edge) => {
+      return edge.node.frontmatter.date.includes(filterQuery);
     });
 
     setData(filteredData);
     setFullSizeData(filteredFullSizeData);
   };
+
+  console.log(data);
 
   return (
     <Layout location={props.location}>
@@ -87,7 +92,7 @@ export const query = graphql`
             image {
               publicURL
               childImageSharp {
-                gatsbyImageData(quality: 70, placeholder: NONE)
+                gatsbyImageData(quality: 60, placeholder: NONE)
               }
             }
           }

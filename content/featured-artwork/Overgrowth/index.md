@@ -1,5 +1,5 @@
 ---
-title: Overgrowth with Figure
-image: Overgrowth with Figure.jpg
+title: Overgrowth
+image: overgrowth.jpg
 order: 1
 ---
