@@ -19,11 +19,6 @@
 .lightbox_buttons button:last-child {
   margin: 0;
 }
-.lightbox div {
-  left: 50%;
-  transform: translateX(-50%);
-  filter: drop-shadow(4px 4px 7px gray);
-}
 .lightbox img {
   max-height: 100vh;
   padding: 5vh 0 6vh 0;

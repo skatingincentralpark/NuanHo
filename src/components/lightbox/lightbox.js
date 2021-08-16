@@ -3,15 +3,12 @@ import React from "react";
 import * as classes from "./lightbox.module.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+
 import LightboxInfo from "./lightboxInfo";
 
 const Lightbox = (props) => {
-  const handleKeyPress = (event) => {
-    if (event.key === "37") {
-      console.log("enter press here! ");
-    }
-  };
-
   return (
     <>
       <div className={classes.lightbox_buttons}>
@@ -25,18 +22,49 @@ const Lightbox = (props) => {
           [close]
         </button>
       </div>
-      <div
-        onKeyDown={handleKeyPress}
-        className={classes.lightbox}
-        onClick={props.hide}
-      >
-        <GatsbyImage
+
+      <div className={classes.lightbox}>
+        <Carousel
+          showIndicators={false}
+          showStatus={false}
+          showArrows={false}
+          useKeyboardArrows={true}
+          showThumbs={false}
+          selectedItem={props.currIndex}
+          // renderArrowNext={(onClickHandler, hasNext, label) => (
+          //   <button
+          //     type="button"
+          //     onClick={onClickHandler}
+          //     className="custom-arrow"
+          //     key={"next"}
+          //   />
+          // )}
+          // renderArrowPrev={(onClickHandler, hasPrev, label) => (
+          //   <button
+          //     type="button"
+          //     onClick={onClickHandler}
+          //     className="custom-arrow-prev"
+          //     key={"prev"}
+          //   />
+          // )}
+        >
+          {props.fullSizeData.map((edge) => (
+            <div key={edge.node.frontmatter.id}>
+              <GatsbyImage
+                image={getImage(edge.node.frontmatter.image)}
+                alt={edge.node.frontmatter.title}
+              />
+            </div>
+          ))}
+        </Carousel>
+
+        {/* <GatsbyImage
           image={getImage(
             props.fullSizeData[props.currIndex].node.frontmatter.image
               .childImageSharp
           )}
           alt={props.fullSizeData[props.currIndex].node.frontmatter.title}
-        />
+        /> */}
       </div>
       <LightboxInfo
         frontmatter={props.fullSizeData[props.currIndex].node.frontmatter}

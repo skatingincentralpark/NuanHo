@@ -44,6 +44,9 @@ button {
   margin: 0 1.5em 0.5em 0;
   cursor: pointer;
 }
+.btn:hover {
+  color: rgb(192, 192, 192);
+}
 
 *,
 *:before,
@@ -69,7 +72,10 @@ header {
   z-index: 97;
 }
 header a {
-  background-color: white;
+  /* background-color: white; */
+}
+header a:hover {
+  color: rgb(192, 192, 192);
 }
 footer {
   position: fixed;
@@ -133,6 +139,25 @@ footer {
 }
 .artist-text p {
   margin: 0;
+}
+
+/* carousell */
+.custom-arrow {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.custom-arrow-prev {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
 }
 
 @media only screen and (min-width: 796px) {

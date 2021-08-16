@@ -5,6 +5,9 @@
   mix-blend-mode: difference;
   z-index: 95;
 }
+.archiveBtns button:hover {
+  color: rgb(192, 192, 192);
+}
 .archiveBtnsMore {
   display: inline;
 }
