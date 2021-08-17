@@ -1,7 +1,6 @@
 import React from "react";
 
 const ArtistText = (props) => {
-  console.log(props.location);
   return (
     <div className="artist-text">
       <h1>Nuan Ho</h1>

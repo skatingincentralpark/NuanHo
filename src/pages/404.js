@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { Link } from "gatsby";
 
-import Layout from "../components/layouts/layout";
+import Layout from "../layouts/index";
 
 const NotFoundPage = (props) => {
   return (

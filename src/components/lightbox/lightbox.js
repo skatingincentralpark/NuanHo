@@ -30,10 +30,9 @@ const Lightbox = (props) => {
           showArrows={false}
           showThumbs={false}
           selectedItem={props.currIndex}
-          autoPlay={true}
-          animationHandler="fade"
+          autoPlay={false}
           transitionTime={500}
-          swipeable={false}
+          // animationHandler="fade"
         >
           {props.fullSizeData.map((edge) => (
             <div key={edge.node.frontmatter.id} onClick={props.hide}>

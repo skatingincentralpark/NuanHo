@@ -1,19 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import { Link } from "gatsby";
 
 import HeaderPopup from "./headerPopup";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 const Header = ({ location }) => {
+  const targetRef = useRef(null);
   const [showNav, setShowNav] = useState(false);
 
   const showNavHandler = () => {
+    if (showNav) {
+      enableBodyScroll(targetRef);
+    } else {
+      disableBodyScroll(targetRef);
+    }
     setShowNav((prev) => !prev);
   };
 
   return (
     <>
-      <header>
+      <header ref={targetRef}>
         <button onClick={showNavHandler} className="btn">
           [info]
         </button>

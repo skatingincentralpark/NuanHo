@@ -5,6 +5,7 @@ import * as classes from "./yearNavigation.module.css";
 const YearNavigation = (props) => {
   const [years, setYears] = useState({});
   const [showYears, setShowYears] = useState(false);
+  const [selectedYear, setSelectedYear] = useState("");
 
   // years array
   useEffect(() => {
@@ -41,6 +42,15 @@ const YearNavigation = (props) => {
     setShowYears((prev) => !prev);
   };
 
+  // click handler for filter
+  const filterClickHandler = (e) => {
+    const value = e.target.value;
+    props.handleClick(value);
+    setSelectedYear(value);
+  };
+
+  // const activeYearClass = selectedYear === this.value && "btn";
+
   return (
     <>
       <div className={classes.archiveBtns}>
@@ -48,13 +58,17 @@ const YearNavigation = (props) => {
 
         {years.sortedArrHidden && (
           <>
-            <button className="btn" onClick={props.handleClick} value="">
+            <button
+              className={`btn ${selectedYear == "" && classes.btnActive}`}
+              onClick={filterClickHandler}
+              value=""
+            >
               [All]
             </button>
             {years.sortedArrShown.map((year) => (
               <button
-                className="btn"
-                onClick={props.handleClick}
+                className={`btn ${selectedYear == year && classes.btnActive}`}
+                onClick={filterClickHandler}
                 value={year}
                 key={year}
               >
@@ -66,8 +80,10 @@ const YearNavigation = (props) => {
                 <div className={classes.archiveBtnsMoreDropdown}>
                   {years.sortedArrHidden.map((year) => (
                     <button
-                      className="btn"
-                      onClick={props.handleClick}
+                      className={`btn ${
+                        selectedYear == year && classes.btnActive
+                      }`}
+                      onClick={filterClickHandler}
                       value={year}
                       key={year}
                     >

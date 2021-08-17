@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { graphql } from "gatsby";
 
-import Layout from "../components/layouts/layout";
+import Layout from "../layouts/index";
 import Seo from "../components/seo/seo";
 import Archive from "../components/archive/archive";
 import YearNavigation from "../components/archive/yearNavigation";
@@ -19,8 +19,8 @@ const ArchivePage = (props) => {
     setFullSizeData(allFullSizeImages);
   }, [props.data.archive.edges, props.data.archiveFullSize.edges]);
 
-  const handleClick = (e) => {
-    const filterQuery = e.target.value;
+  const handleClick = (year) => {
+    const filterQuery = year;
 
     const allImages = props.data.archive.edges;
     const allFullSizeImages = props.data.archiveFullSize.edges;

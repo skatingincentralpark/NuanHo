@@ -36,7 +36,7 @@ button {
   color: #272727;
 }
 .btn {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   border: none;
   font-size: 1rem;
   letter-spacing: 0;
@@ -71,9 +71,6 @@ header {
   mix-blend-mode: difference;
   z-index: 97;
 }
-header a {
-  /* background-color: white; */
-}
 header a:hover {
   color: rgb(192, 192, 192);
 }
@@ -87,7 +84,7 @@ footer {
 /* header pop-up */
 .header-info {
   position: fixed;
-  background-color: whitesmoke;
+  background-color: white;
   z-index: 96;
   top: 0;
   left: 0;
@@ -136,6 +133,9 @@ footer {
 }
 .artist-text h1 {
   font-size: 2.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
 }
 .artist-text p {
   margin: 0;
@@ -154,6 +154,9 @@ footer {
   .carousel .slide {
     margin: 0;
     padding: 0;
+  }
+  .header-info {
+    padding: 20vh 30vw;
   }
 }
 

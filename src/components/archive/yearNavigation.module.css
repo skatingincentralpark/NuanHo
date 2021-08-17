@@ -11,6 +11,9 @@
 .archiveBtnsMore {
   display: inline;
 }
+.btnActive {
+  color: rgb(192, 192, 192);
+}
 .archiveBtnsMoreDropdown {
   display: inline;
 }
