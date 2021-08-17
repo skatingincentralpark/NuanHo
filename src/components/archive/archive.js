@@ -9,22 +9,20 @@ const Archive = (props) => {
   const [showLightbox, setShowLightbox] = useState(false);
 
   const currIndexHandler = (e) => {
-    setCurrIndex(e.target.getAttribute("data-index"));
+    setCurrIndex(parseInt(e.target.getAttribute("data-index")));
     setShowLightbox(true);
   };
 
   const increaseCurrIndexHandler = () => {
     if (currIndex === props.fullSizeData.length - 1) {
-      return;
-      // setCurrIndex(0);
+      setCurrIndex(0);
     } else if (currIndex < props.fullSizeData.length - 1) {
       setCurrIndex((prev) => parseInt(prev) + 1);
     }
   };
   const decreaseCurrIndexHandler = () => {
     if (currIndex === 0) {
-      return;
-      // setCurrIndex(props.fullSizeData.length - 1);
+      setCurrIndex(props.fullSizeData.length - 1);
     } else if (currIndex > 0) {
       setCurrIndex((prev) => parseInt(prev) - 1);
     }

@@ -142,27 +142,18 @@ footer {
 }
 
 /* carousell */
-.custom-arrow {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-  position: fixed;
-  top: 0;
-  right: 0;
-}
-.custom-arrow-prev {
-  width: 100px;
-  height: 100px;
-  background-color: green;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
+.carousel .slide {
+  margin: auto !important;
+  padding: 3vw;
 }
 
 @media only screen and (min-width: 796px) {
   .gallery {
     gap: 0;
+  }
+  .carousel .slide {
+    margin: 0;
+    padding: 0;
   }
 }
 
