@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "gatsby";
 
-import Transition from "../components/Transition/Transition";
+import Transition from "../components/transition/Transition";
 import Header from "./header";
 import ArtistText from "./artistText";
 
