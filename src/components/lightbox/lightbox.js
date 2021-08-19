@@ -44,7 +44,7 @@ const Lightbox = (props) => {
       <div className={classes.lightbox}>
         <Slider {...settings}>
           {props.fullSizeData.map((edge) => (
-            <div key={edge.node.frontmatter.id}>
+            <div key={edge.node.frontmatter.id} className="slide-single">
               <GatsbyImage
                 image={getImage(edge.node.frontmatter.image)}
                 alt={edge.node.frontmatter.title}

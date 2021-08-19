@@ -166,7 +166,12 @@ footer {
 }
 
 /* slick carousel */
-.slick-slide {
+.slide-single div {
+  /* display: flex;
+  margin: auto;
+  width: 50%; */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media only screen and (min-width: 796px) {
