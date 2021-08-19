@@ -7,56 +7,53 @@ import { useEmblaCarousel } from "embla-carousel/react";
 
 import LightboxInfo from "./lightboxInfo";
 
-const Lightbox = (props) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "center",
-    skipSnaps: false,
-    containScroll: "trimSnaps",
-  });
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-  console.log(emblaApi);
+const Lightbox = (props) => {
+  // const [emblaRef, emblaApi] = useEmblaCarousel({
+  //   align: "center",
+  //   skipSnaps: false,
+  //   containScroll: "trimSnaps",
+  // });
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerPadding: "100px",
+  };
+
   return (
     <>
-      {emblaApi && (
-        <div className={classes.lightbox_buttons}>
-          <button onClick={emblaApi.scrollPrev} className="btn">
-            prev
-          </button>
-          <button onClick={emblaApi.scrollNext} className="btn">
-            next
-          </button>
-          <button onClick={props.hide} className="btn">
-            [close]
-          </button>
-        </div>
-      )}
+      <div className={classes.lightbox_buttons}>
+        <button onClick={props.decrease} className="btn">
+          prev
+        </button>
+        <button onClick={props.increase} className="btn">
+          next
+        </button>
+        <button onClick={props.hide} className="btn">
+          [close]
+        </button>
+      </div>
 
       <div className={classes.lightbox}>
-        <div className="embla" ref={emblaRef}>
-          <div className="embla__container">
-            {props.fullSizeData.map((edge) => (
-              <div
-                key={edge.node.frontmatter.id}
-                // onClick={props.hide}
-                className="embla__slide"
-              >
-                <GatsbyImage
-                  image={getImage(edge.node.frontmatter.image)}
-                  alt={edge.node.frontmatter.title}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* <GatsbyImage
-          image={getImage(
-            props.fullSizeData[props.currIndex].node.frontmatter.image
-              .childImageSharp
-          )}
-          alt={props.fullSizeData[props.currIndex].node.frontmatter.title}
-        /> */}
+        <Slider {...settings}>
+          {props.fullSizeData.map((edge) => (
+            <div key={edge.node.frontmatter.id}>
+              <GatsbyImage
+                image={getImage(edge.node.frontmatter.image)}
+                alt={edge.node.frontmatter.title}
+              />
+            </div>
+          ))}
+        </Slider>
       </div>
+
       <LightboxInfo
         frontmatter={props.fullSizeData[props.currIndex].node.frontmatter}
       />

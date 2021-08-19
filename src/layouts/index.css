@@ -165,6 +165,10 @@ footer {
   transform: translateX(-50%);
 }
 
+/* slick carousel */
+.slick-slide {
+}
+
 @media only screen and (min-width: 796px) {
   .gallery {
     gap: 0;
