@@ -35,8 +35,8 @@ const HeaderPopup = () => {
         <br />
         Location: {about.edges[0].node.frontmatter.location}
       </p>
-      <hr />
-      <p>{about.edges[0].node.frontmatter.bio}</p>
+      <p className="bio">{about.edges[0].node.frontmatter.bio}</p>
+      <p className="copyright">Nuan Ho © 2021 - Site by NakedLunch</p>
     </div>
   );
 };

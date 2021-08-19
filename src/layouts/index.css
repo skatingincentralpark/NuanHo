@@ -69,7 +69,7 @@ header {
   top: 2vh;
   right: 2vw;
   mix-blend-mode: difference;
-  z-index: 97;
+  z-index: 98;
 }
 header a:hover {
   color: rgb(192, 192, 192);
@@ -85,15 +85,25 @@ footer {
 .header-info {
   position: fixed;
   background-color: white;
-  z-index: 96;
+  z-index: 97;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   padding: 20vh 20vw;
+  text-align: center;
 }
 .header-info .show {
   display: block;
+}
+.bio {
+  border-top: 1px dotted gray;
+  padding-top: 1em;
+  margin-top: 3em;
+}
+.copyright {
+  margin-top: 10em;
+  font-size: 0.8rem;
 }
 
 /* home */
@@ -119,7 +129,7 @@ footer {
   position: fixed;
   bottom: 4vh;
   left: 2vw;
-  z-index: 96;
+  z-index: 95;
 }
 .z-index {
   z-index: 99;
@@ -133,18 +143,23 @@ footer {
 }
 .artist-text h1 {
   font-size: 2.5rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 600;
 }
 .artist-text p {
   margin: 0;
 }
 
-/* carousell */
-.carousel .slide {
-  margin: auto !important;
-  padding: 3vw;
+/* embla carousel */
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  position: relative;
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (min-width: 796px) {
@@ -156,7 +171,7 @@ footer {
     padding: 0;
   }
   .header-info {
-    padding: 20vh 30vw;
+    padding: 20vh 35vw;
   }
 }
 

@@ -3,46 +3,47 @@ import React from "react";
 import * as classes from "./lightbox.module.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import Carousel from "react-responsive-carousel/lib/js/components/Carousel/index";
+import { useEmblaCarousel } from "embla-carousel/react";
 
 import LightboxInfo from "./lightboxInfo";
 
 const Lightbox = (props) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel();
+
+  console.log(emblaApi);
   return (
     <>
-      <div className={classes.lightbox_buttons}>
-        <button onClick={props.decrease} className="btn">
-          prev
-        </button>
-        <button onClick={props.increase} className="btn">
-          next
-        </button>
-        <button onClick={props.hide} className="btn">
-          [close]
-        </button>
-      </div>
+      {emblaApi && (
+        <div className={classes.lightbox_buttons}>
+          <button onClick={emblaApi.scrollPrev} className="btn">
+            prev
+          </button>
+          <button onClick={emblaApi.scrollNext} className="btn">
+            next
+          </button>
+          <button onClick={props.hide} className="btn">
+            [close]
+          </button>
+        </div>
+      )}
 
       <div className={classes.lightbox}>
-        <Carousel
-          showIndicators={false}
-          showStatus={false}
-          showArrows={false}
-          showThumbs={false}
-          selectedItem={props.currIndex}
-          autoPlay={false}
-          transitionTime={500}
-          // animationHandler="fade"
-        >
-          {props.fullSizeData.map((edge) => (
-            <div key={edge.node.frontmatter.id} onClick={props.hide}>
-              <GatsbyImage
-                image={getImage(edge.node.frontmatter.image)}
-                alt={edge.node.frontmatter.title}
-              />
-            </div>
-          ))}
-        </Carousel>
+        <div className="embla" ref={emblaRef}>
+          <div className="embla__container">
+            {props.fullSizeData.map((edge) => (
+              <div
+                key={edge.node.frontmatter.id}
+                // onClick={props.hide}
+                className="embla__slide"
+              >
+                <GatsbyImage
+                  image={getImage(edge.node.frontmatter.image)}
+                  alt={edge.node.frontmatter.title}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* <GatsbyImage
           image={getImage(
