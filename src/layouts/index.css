@@ -158,8 +158,11 @@ footer {
 .embla__slide {
   position: relative;
   flex: 0 0 100%;
-  display: flex;
-  justify-content: center;
+  padding: 2vh 6vw 6vh 6vw;
+}
+.embla__slide div {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media only screen and (min-width: 796px) {

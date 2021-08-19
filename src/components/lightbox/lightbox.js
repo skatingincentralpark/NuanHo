@@ -8,7 +8,11 @@ import { useEmblaCarousel } from "embla-carousel/react";
 import LightboxInfo from "./lightboxInfo";
 
 const Lightbox = (props) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel();
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "center",
+    skipSnaps: false,
+    containScroll: "trimSnaps",
+  });
 
   console.log(emblaApi);
   return (
