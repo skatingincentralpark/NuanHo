@@ -146,6 +146,13 @@ footer {
 .artist-text p {
   margin: 0;
 }
+.popup h1 {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.popup h2 {
+  font-size: 1rem;
+}
 
 /* embla carousel */
 .embla {
@@ -173,22 +180,23 @@ footer {
   outline: none;
 }
 .slide-single {
-  /* padding: 6vh 6vw; */
+  padding: 6vh 6vw;
   height: 100%;
 }
 .slide-single div {
   margin: auto;
   display: flex;
 }
-/*
-.slide-single div {
-  left: 50%;
-  transform: translateX(-50%);
-  max-height: 100vh;
+
+@media only screen and (min-width: 596px) {
+  .popup h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+  }
+  .popup h2 {
+    font-size: 1.5rem;
+  }
 }
-.slide-single img {
-  max-height: 100vh;
-} */
 
 @media only screen and (min-width: 796px) {
   .gallery {
@@ -196,6 +204,9 @@ footer {
   }
   .header-info {
     padding: 20vh 35vw;
+  }
+  .slide-single {
+    padding: 0;
   }
 }
 

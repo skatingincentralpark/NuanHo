@@ -40,7 +40,11 @@ const ArchivePage = (props) => {
     <Layout location={props.location}>
       <Seo title="Archive" description="Archive of past artworks by Nuan Ho." />
       <YearNavigation handleClick={handleClick} />
-      <Archive data={data} fullSizeData={fullSizeData} />
+      <Archive
+        data={data}
+        fullSizeData={fullSizeData}
+        location={props.location}
+      />
     </Layout>
   );
 };

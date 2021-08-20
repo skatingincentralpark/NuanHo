@@ -41,6 +41,7 @@ const Archive = (props) => {
           currIndexHandler={currIndexHandler}
           hide={hideLightboxHandler}
           lightboxIsVisible={showLightbox}
+          location={props.location}
         />
       )}
 

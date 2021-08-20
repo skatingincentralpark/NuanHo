@@ -72,6 +72,7 @@ const Lightbox = (props) => {
 
       <LightboxInfo
         frontmatter={props.fullSizeData[props.currIndex].node.frontmatter}
+        location={props.location}
       />
       <div className={classes.backdrop} />
     </>
