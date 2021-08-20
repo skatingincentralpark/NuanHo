@@ -66,7 +66,7 @@ export const query = graphql`
             image {
               publicURL
               childImageSharp {
-                gatsbyImageData(quality: 30, placeholder: DOMINANT_COLOR)
+                gatsbyImageData(width: 200, placeholder: DOMINANT_COLOR)
               }
             }
           }

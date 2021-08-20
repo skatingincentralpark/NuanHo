@@ -13,20 +13,20 @@ const Archive = (props) => {
     setShowLightbox(true);
   };
 
-  const increaseCurrIndexHandler = () => {
-    if (currIndex === props.fullSizeData.length - 1) {
-      setCurrIndex(0);
-    } else if (currIndex < props.fullSizeData.length - 1) {
-      setCurrIndex((prev) => parseInt(prev) + 1);
-    }
-  };
-  const decreaseCurrIndexHandler = () => {
-    if (currIndex === 0) {
-      setCurrIndex(props.fullSizeData.length - 1);
-    } else if (currIndex > 0) {
-      setCurrIndex((prev) => parseInt(prev) - 1);
-    }
-  };
+  // const increaseCurrIndexHandler = () => {
+  //   if (currIndex === props.fullSizeData.length - 1) {
+  //     setCurrIndex(0);
+  //   } else if (currIndex < props.fullSizeData.length - 1) {
+  //     setCurrIndex((prev) => parseInt(prev) + 1);
+  //   }
+  // };
+  // const decreaseCurrIndexHandler = () => {
+  //   if (currIndex === 0) {
+  //     setCurrIndex(props.fullSizeData.length - 1);
+  //   } else if (currIndex > 0) {
+  //     setCurrIndex((prev) => parseInt(prev) - 1);
+  //   }
+  // };
 
   const hideLightboxHandler = () => {
     setShowLightbox(false);
@@ -38,9 +38,9 @@ const Archive = (props) => {
         <Lightbox
           currIndex={currIndex}
           fullSizeData={props.fullSizeData}
-          increase={increaseCurrIndexHandler}
-          decrease={decreaseCurrIndexHandler}
+          currIndexHandler={currIndexHandler}
           hide={hideLightboxHandler}
+          lightboxIsVisible={showLightbox}
         />
       )}
 

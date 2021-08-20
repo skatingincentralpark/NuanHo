@@ -14,7 +14,6 @@ const LightboxBackup = (props) => {
     containScroll: "trimSnaps",
   });
 
-  console.log(emblaApi);
   return (
     <>
       {emblaApi && (

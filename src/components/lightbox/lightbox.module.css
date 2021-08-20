@@ -21,8 +21,6 @@
 }
 .lightbox img {
   max-height: 100vh;
-  padding: 5vh 0 6vh 0;
-  margin: auto;
 }
 .backdrop {
   position: fixed;

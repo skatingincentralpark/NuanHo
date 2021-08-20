@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import * as classes from "./lightbox.module.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -18,22 +18,36 @@ const Lightbox = (props) => {
   //   containScroll: "trimSnaps",
   // });
 
+  const sliderRef = useRef();
+
+  const next = () => {
+    sliderRef.current.slickNext();
+  };
+  const prev = () => {
+    sliderRef.current.slickPrev();
+  };
+  useEffect(() => {
+    if (props.lightboxIsVisible) {
+      sliderRef.current.slickGoTo(props.currIndex, false);
+    }
+  }, [props.currIndex, props.lightboxIsVisible]);
+
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
+    dots: false,
+    infinite: false,
+    speed: 150,
     slidesToShow: 1,
     slidesToScroll: 1,
-    centerPadding: "100px",
+    initialSlide: props.currIndex,
   };
 
   return (
     <>
       <div className={classes.lightbox_buttons}>
-        <button onClick={props.decrease} className="btn">
+        <button onClick={prev} className="btn">
           prev
         </button>
-        <button onClick={props.increase} className="btn">
+        <button onClick={next} className="btn">
           next
         </button>
         <button onClick={props.hide} className="btn">
@@ -42,12 +56,14 @@ const Lightbox = (props) => {
       </div>
 
       <div className={classes.lightbox}>
-        <Slider {...settings}>
-          {props.fullSizeData.map((edge) => (
-            <div key={edge.node.frontmatter.id} className="slide-single">
+        <Slider {...settings} ref={sliderRef}>
+          {props.fullSizeData.map((edge, i) => (
+            <div key={i} className="slide-single">
               <GatsbyImage
                 image={getImage(edge.node.frontmatter.image)}
                 alt={edge.node.frontmatter.title}
+                onClick={props.hide}
+                objectFit="contain"
               />
             </div>
           ))}
