@@ -12,29 +12,37 @@ const LightboxEmbla = (props) => {
     align: "center",
     skipSnaps: false,
     containScroll: "trimSnaps",
+    loop: true,
   });
 
+  const increase = () => {
+    emblaApi.scrollNext();
+    props.increase();
+  };
+  const decrease = () => {
+    emblaApi.scrollPrev();
+    props.decrease();
+  };
+
   return (
-    <>
-      {emblaApi && (
-        <div className={classes.lightbox_buttons}>
-          <button onClick={emblaApi.scrollPrev} className="btn">
-            prev
-          </button>
-          <button onClick={emblaApi.scrollNext} className="btn">
-            next
-          </button>
-          <button onClick={props.hide} className="btn">
-            [close]
-          </button>
-        </div>
-      )}
+    <div className={classes.lightboxContainer}>
+      <div className={classes.lightbox_buttons}>
+        <button onClick={decrease} className="btn">
+          prev
+        </button>
+        <button onClick={increase} className="btn">
+          next
+        </button>
+        <button onClick={props.hide} className="btn">
+          [close]
+        </button>
+      </div>
 
       <div className={classes.lightbox}>
         <div className="embla" ref={emblaRef}>
           <div className="embla__container">
-            {props.fullSizeData.map((edge) => (
-              <div key={edge.node.frontmatter.id} className="embla__slide">
+            {props.fullSizeData.map((edge, i) => (
+              <div key={i} className="embla__slide">
                 <GatsbyImage
                   image={getImage(edge.node.frontmatter.image)}
                   alt={edge.node.frontmatter.title}
@@ -44,20 +52,15 @@ const LightboxEmbla = (props) => {
             ))}
           </div>
         </div>
-
-        {/* <GatsbyImage
-          image={getImage(
-            props.fullSizeData[props.currIndex].node.frontmatter.image
-              .childImageSharp
-          )}
-          alt={props.fullSizeData[props.currIndex].node.frontmatter.title}
-        /> */}
       </div>
-      {/* <LightboxInfo
-        frontmatter={props.fullSizeData[props.currIndex].node.frontmatter}
-      /> */}
+
+      {emblaApi && (
+        <LightboxInfo
+          frontmatter={props.fullSizeData[props.currIndex].node.frontmatter}
+        />
+      )}
       <div className={classes.backdrop} />
-    </>
+    </div>
   );
 };
 

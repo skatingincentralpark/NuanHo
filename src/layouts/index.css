@@ -156,7 +156,8 @@ footer {
 .embla__slide {
   position: relative;
   flex: 0 0 100%;
-  padding: 2vh 6vw 6vh 6vw;
+  padding: 6vh 6vw 0 6vw;
+  display: flex;
 }
 .embla__slide div {
   left: 50%;
@@ -164,7 +165,7 @@ footer {
 }
 
 /* slick carousel */
-.slick-track {
+/* .slick-track {
   display: flex !important;
   align-items: center !important;
 }
@@ -184,7 +185,7 @@ footer {
 .slide-single div {
   margin: auto;
   display: flex;
-}
+} */
 
 /* css transition for lightbox */
 
@@ -204,6 +205,9 @@ footer {
 }
 
 @media only screen and (min-width: 596px) {
+  .embla__slide {
+    padding-top: 0;
+  }
 }
 
 @media only screen and (min-width: 796px) {

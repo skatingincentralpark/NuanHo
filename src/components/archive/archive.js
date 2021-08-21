@@ -19,20 +19,20 @@ const Archive = (props) => {
     disableBodyScroll(targetRef);
   };
 
-  // const increaseCurrIndexHandler = () => {
-  //   if (currIndex === props.fullSizeData.length - 1) {
-  //     setCurrIndex(0);
-  //   } else if (currIndex < props.fullSizeData.length - 1) {
-  //     setCurrIndex((prev) => parseInt(prev) + 1);
-  //   }
-  // };
-  // const decreaseCurrIndexHandler = () => {
-  //   if (currIndex === 0) {
-  //     setCurrIndex(props.fullSizeData.length - 1);
-  //   } else if (currIndex > 0) {
-  //     setCurrIndex((prev) => parseInt(prev) - 1);
-  //   }
-  // };
+  const increaseCurrIndexHandler = () => {
+    if (currIndex === props.fullSizeData.length - 1) {
+      setCurrIndex(0);
+    } else if (currIndex < props.fullSizeData.length - 1) {
+      setCurrIndex((prev) => parseInt(prev) + 1);
+    }
+  };
+  const decreaseCurrIndexHandler = () => {
+    if (currIndex === 0) {
+      setCurrIndex(props.fullSizeData.length - 1);
+    } else if (currIndex > 0) {
+      setCurrIndex((prev) => parseInt(prev) - 1);
+    }
+  };
 
   const setCurrIndexHandler = (index) => {
     setCurrIndex(index);
@@ -50,11 +50,6 @@ const Archive = (props) => {
         timeout={250}
         unmountOnExit
         classNames="fade"
-        // timeout={{
-        //   appear: 500,
-        //   enter: 500,
-        //   exit: 500,
-        // }}
       >
         {props.fullSizeData && (
           // <Lightbox
@@ -70,6 +65,10 @@ const Archive = (props) => {
           <LightboxEmbla
             hide={hideLightboxHandler}
             fullSizeData={props.fullSizeData}
+            currIndex={currIndex}
+            increase={increaseCurrIndexHandler}
+            decrease={decreaseCurrIndexHandler}
+            setCurrIndexHandler={setCurrIndexHandler}
           />
         )}
       </CSSTransition>

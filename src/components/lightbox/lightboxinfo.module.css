@@ -1,7 +1,7 @@
 .lightboxInfo {
   position: relative;
   z-index: 99;
-  padding: 0 0 3vh 6vw;
+  padding: 3vh 6vw 3vh 6vw;
 }
 .lightboxInfo h1,
 .lightboxInfo h2,
