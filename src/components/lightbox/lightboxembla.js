@@ -38,6 +38,7 @@ const LightboxEmbla = (props) => {
                 <GatsbyImage
                   image={getImage(edge.node.frontmatter.image)}
                   alt={edge.node.frontmatter.title}
+                  objectFit="contain"
                 />
               </div>
             ))}
@@ -52,9 +53,9 @@ const LightboxEmbla = (props) => {
           alt={props.fullSizeData[props.currIndex].node.frontmatter.title}
         /> */}
       </div>
-      <LightboxInfo
+      {/* <LightboxInfo
         frontmatter={props.fullSizeData[props.currIndex].node.frontmatter}
-      />
+      /> */}
       <div className={classes.backdrop} />
     </>
   );
