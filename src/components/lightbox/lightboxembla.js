@@ -7,7 +7,7 @@ import { useEmblaCarousel } from "embla-carousel/react";
 
 import LightboxInfo from "./lightboxInfo";
 
-const LightboxBackup = (props) => {
+const LightboxEmbla = (props) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
     skipSnaps: false,
@@ -60,4 +60,4 @@ const LightboxBackup = (props) => {
   );
 };
 
-export default LightboxBackup;
+export default LightboxEmbla;

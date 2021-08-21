@@ -3,8 +3,6 @@ import React, { useEffect, useRef } from "react";
 import * as classes from "./lightbox.module.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import { useEmblaCarousel } from "embla-carousel/react";
-
 import LightboxInfo from "./lightboxInfo";
 
 import Slider from "react-slick";
@@ -12,20 +10,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Lightbox = (props) => {
-  // const [emblaRef, emblaApi] = useEmblaCarousel({
-  //   align: "center",
-  //   skipSnaps: false,
-  //   containScroll: "trimSnaps",
-  // });
-
   const sliderRef = useRef();
 
   const next = () => {
     sliderRef.current.slickNext();
   };
+
   const prev = () => {
     sliderRef.current.slickPrev();
   };
+
   useEffect(() => {
     if (props.lightboxIsVisible) {
       sliderRef.current.slickGoTo(props.currIndex, false);
@@ -34,15 +28,16 @@ const Lightbox = (props) => {
 
   const settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 150,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: props.currIndex,
+    afterChange: (current) => props.setCurrIndexHandler(current),
   };
 
   return (
-    <>
+    <div className={classes.lightboxContainer}>
       <div className={classes.lightbox_buttons}>
         <button onClick={prev} className="btn">
           prev
@@ -56,26 +51,28 @@ const Lightbox = (props) => {
       </div>
 
       <div className={classes.lightbox}>
-        <Slider {...settings} ref={sliderRef}>
-          {props.fullSizeData.map((edge, i) => (
-            <div key={i} className="slide-single">
-              <GatsbyImage
-                image={getImage(edge.node.frontmatter.image)}
-                alt={edge.node.frontmatter.title}
-                onClick={props.hide}
-                objectFit="contain"
-              />
-            </div>
-          ))}
-        </Slider>
-      </div>
+        <div className={classes.lightboxInner}>
+          <Slider {...settings} ref={sliderRef}>
+            {props.fullSizeData.map((edge, i) => (
+              <div key={i} className="slide-single">
+                <GatsbyImage
+                  image={getImage(edge.node.frontmatter.image)}
+                  alt={edge.node.frontmatter.title}
+                  onClick={props.hide}
+                  objectFit="contain"
+                />
+              </div>
+            ))}
+          </Slider>
 
-      <LightboxInfo
-        frontmatter={props.fullSizeData[props.currIndex].node.frontmatter}
-        location={props.location}
-      />
+          <LightboxInfo
+            frontmatter={props.fullSizeData[props.currIndex].node.frontmatter}
+            location={props.location}
+          />
+        </div>
+      </div>
       <div className={classes.backdrop} />
-    </>
+    </div>
   );
 };
 

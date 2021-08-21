@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { CSSTransition } from "react-transition-group";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 import Lightbox from "../lightbox/lightbox";
 import * as classes from "./archive.module.css";
@@ -8,9 +10,12 @@ const Archive = (props) => {
   const [currIndex, setCurrIndex] = useState(0);
   const [showLightbox, setShowLightbox] = useState(false);
 
+  const targetRef = useRef(null);
+
   const currIndexHandler = (e) => {
     setCurrIndex(parseInt(e.target.getAttribute("data-index")));
     setShowLightbox(true);
+    disableBodyScroll(targetRef);
   };
 
   // const increaseCurrIndexHandler = () => {
@@ -28,25 +33,44 @@ const Archive = (props) => {
   //   }
   // };
 
+  const setCurrIndexHandler = (index) => {
+    setCurrIndex(index);
+  };
+
   const hideLightboxHandler = () => {
     setShowLightbox(false);
+    enableBodyScroll(targetRef);
   };
 
   return (
     <>
-      {props.fullSizeData && showLightbox && (
-        <Lightbox
-          currIndex={currIndex}
-          fullSizeData={props.fullSizeData}
-          currIndexHandler={currIndexHandler}
-          hide={hideLightboxHandler}
-          lightboxIsVisible={showLightbox}
-          location={props.location}
-        />
-      )}
+      <CSSTransition
+        in={showLightbox}
+        timeout={250}
+        unmountOnExit
+        classNames="fade"
+        // timeout={{
+        //   appear: 500,
+        //   enter: 500,
+        //   exit: 500,
+        // }}
+      >
+        {props.fullSizeData && (
+          <Lightbox
+            currIndex={currIndex}
+            fullSizeData={props.fullSizeData}
+            hide={hideLightboxHandler}
+            lightboxIsVisible={showLightbox}
+            location={props.location}
+            // increase={increaseCurrIndexHandler}
+            // decrease={decreaseCurrIndexHandler}
+            setCurrIndexHandler={setCurrIndexHandler}
+          />
+        )}
+      </CSSTransition>
 
       {props.data && (
-        <div className={classes.archiveGallery}>
+        <div className={classes.archiveGallery} ref={targetRef}>
           {props.data.map((edge, i) => (
             <div className={classes.archiveGalleryItem} key={edge.node.id}>
               <GatsbyImage

@@ -1,8 +1,10 @@
 import React from "react";
 
+import * as classes from "./lightboxinfo.module.css";
+
 const LightboxInfo = (props) => {
   return (
-    <div className={`artist-text z-index popup`}>
+    <div className={classes.lightboxInfo}>
       <small>{props.frontmatter.date}</small>
       <h1>Nuan Ho</h1>
       <h2>{props.frontmatter.title}</h2>

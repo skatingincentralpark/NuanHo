@@ -146,14 +146,6 @@ footer {
 .artist-text p {
   margin: 0;
 }
-.popup h1 {
-  font-weight: 600;
-  font-size: 1rem;
-}
-.popup h2 {
-  font-size: 1rem;
-}
-
 /* embla carousel */
 .embla {
   overflow: hidden;
@@ -176,11 +168,14 @@ footer {
   display: flex !important;
   align-items: center !important;
 }
+.slick-slide {
+  max-height: 100vh;
+}
 .slick-slide div {
   outline: none;
 }
 .slide-single {
-  padding: 6vh 6vw;
+  padding: 6vh 6vw 3vh 6vw;
   height: 100%;
 }
 .slide-single div {
@@ -188,14 +183,24 @@ footer {
   display: flex;
 }
 
+/* css transition for lightbox */
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 0.25s;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
 @media only screen and (min-width: 596px) {
-  .popup h1 {
-    font-size: 2.5rem;
-    font-weight: 300;
-  }
-  .popup h2 {
-    font-size: 1.5rem;
-  }
 }
 
 @media only screen and (min-width: 796px) {

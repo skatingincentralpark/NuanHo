@@ -1,0 +1,35 @@
+.lightboxInfo {
+  position: relative;
+  z-index: 99;
+  padding: 0 0 3vh 6vw;
+}
+.lightboxInfo h1,
+.lightboxInfo h2,
+.lightboxInfo p {
+  font-weight: 300;
+  margin: 0 0 0.25em 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+}
+.lightboxInfo h1 {
+  font-weight: 600;
+}
+.lightboxInfo p {
+  margin: 0;
+}
+
+@media only screen and (min-width: 596px) {
+  .lightboxInfo h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+  }
+  .lightboxInfo h2 {
+    font-size: 1.5rem;
+  }
+  .lightboxInfo {
+    position: fixed;
+    bottom: 4vh;
+    left: 2vw;
+    padding: 0;
+  }
+}
