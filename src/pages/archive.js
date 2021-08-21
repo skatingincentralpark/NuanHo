@@ -96,7 +96,11 @@ export const query = graphql`
             image {
               publicURL
               childImageSharp {
-                gatsbyImageData(quality: 60, placeholder: NONE)
+                gatsbyImageData(
+                  quality: 60
+                  placeholder: NONE
+                  blurredOptions: { width: 5 }
+                )
               }
             }
           }
