@@ -1,19 +1,29 @@
-/* lightbox */
+/* parent */
+.lightboxContainer {
+  position: absolute;
+  z-index: 98;
+  overflow-y: scroll;
+  /* overflow-x: hidden; */
+  top: 0;
+  bottom: 0;
+}
+/* child 1 */
 .lightbox {
   position: relative;
   z-index: 99;
   width: 100vw;
   user-select: none;
 }
-.lightbox:hover {
-  cursor: s-resize;
-}
+/* child 2 */
 .lightbox_buttons {
   position: fixed;
   z-index: 100;
   top: 2vh;
   right: 2vw;
   user-select: none;
+}
+.lightbox:hover {
+  cursor: s-resize;
 }
 .lightbox_buttons button:last-child {
   margin: 0;
@@ -29,14 +39,6 @@
   top: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 1);
-}
-.lightboxContainer {
-  position: fixed;
-  z-index: 98;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  top: 0;
-  bottom: 0;
 }
 .loading {
   position: fixed;

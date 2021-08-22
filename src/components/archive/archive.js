@@ -4,7 +4,6 @@ import { CSSTransition } from "react-transition-group";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 import Lightbox from "../lightbox/lightbox";
-import LightboxEmbla from "../lightbox/lightboxembla";
 import * as classes from "./archive.module.css";
 
 const Archive = (props) => {
@@ -52,17 +51,7 @@ const Archive = (props) => {
         classNames="fade"
       >
         {props.fullSizeData && (
-          // <Lightbox
-          //   currIndex={currIndex}
-          //   fullSizeData={props.fullSizeData}
-          //   hide={hideLightboxHandler}
-          //   lightboxIsVisible={showLightbox}
-          //   location={props.location}
-          //   // increase={increaseCurrIndexHandler}
-          //   // decrease={decreaseCurrIndexHandler}
-          //   setCurrIndexHandler={setCurrIndexHandler}
-          // />
-          <LightboxEmbla
+          <Lightbox
             hide={hideLightboxHandler}
             fullSizeData={props.fullSizeData}
             currIndex={currIndex}

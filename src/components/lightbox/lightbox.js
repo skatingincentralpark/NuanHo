@@ -1,48 +1,36 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 import * as classes from "./lightbox.module.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
+import { useEmblaCarousel } from "embla-carousel/react";
+
 import LightboxInfo from "./lightboxInfo";
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+const LightboxEmbla = (props) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "center",
+    skipSnaps: false,
+    containScroll: "trimSnaps",
+    loop: true,
+  });
 
-const Lightbox = (props) => {
-  const sliderRef = useRef();
-
-  const next = () => {
-    sliderRef.current.slickNext();
+  const increase = () => {
+    emblaApi.scrollNext();
+    props.increase();
   };
-
-  const prev = () => {
-    sliderRef.current.slickPrev();
-  };
-
-  useEffect(() => {
-    if (props.lightboxIsVisible) {
-      sliderRef.current.slickGoTo(props.currIndex, false);
-    }
-  }, [props.currIndex, props.lightboxIsVisible]);
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 150,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    initialSlide: props.currIndex,
-    afterChange: (current) => props.setCurrIndexHandler(current),
+  const decrease = () => {
+    emblaApi.scrollPrev();
+    props.decrease();
   };
 
   return (
     <div className={classes.lightboxContainer}>
       <div className={classes.lightbox_buttons}>
-        <button onClick={prev} className="btn">
+        <button onClick={decrease} className="btn">
           prev
         </button>
-        <button onClick={next} className="btn">
+        <button onClick={increase} className="btn">
           next
         </button>
         <button onClick={props.hide} className="btn">
@@ -51,29 +39,29 @@ const Lightbox = (props) => {
       </div>
 
       <div className={classes.lightbox}>
-        <div className={classes.lightboxInner}>
-          <Slider {...settings} ref={sliderRef}>
+        <div className="embla" ref={emblaRef}>
+          <div className="embla__container">
             {props.fullSizeData.map((edge, i) => (
-              <div key={i} className="slide-single">
+              <div key={i} className="embla__slide">
                 <GatsbyImage
                   image={getImage(edge.node.frontmatter.image)}
                   alt={edge.node.frontmatter.title}
-                  onClick={props.hide}
                   objectFit="contain"
                 />
               </div>
             ))}
-          </Slider>
-
-          <LightboxInfo
-            frontmatter={props.fullSizeData[props.currIndex].node.frontmatter}
-            location={props.location}
-          />
+          </div>
         </div>
       </div>
+
+      {emblaApi && (
+        <LightboxInfo
+          frontmatter={props.fullSizeData[props.currIndex].node.frontmatter}
+        />
+      )}
       <div className={classes.backdrop} />
     </div>
   );
 };
 
-export default Lightbox;
+export default LightboxEmbla;
