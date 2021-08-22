@@ -22,14 +22,14 @@
   right: 2vw;
   user-select: none;
 }
-.lightbox:hover {
-  cursor: s-resize;
-}
 .lightbox_buttons button:last-child {
   margin: 0;
 }
 .lightbox img {
   max-height: 100vh;
+}
+.lightbox img:hover {
+  cursor: crosshair;
 }
 .backdrop {
   position: fixed;
@@ -45,4 +45,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media only screen and (min-width: 596px) {
 }

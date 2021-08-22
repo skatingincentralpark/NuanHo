@@ -60,6 +60,7 @@ const Lightbox = (props) => {
                   image={getImage(edge.node.frontmatter.image)}
                   alt={edge.node.frontmatter.title}
                   objectFit="contain"
+                  onClick={props.hide}
                 />
               </div>
             ))}
