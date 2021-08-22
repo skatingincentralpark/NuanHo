@@ -18,6 +18,7 @@ const Lightbox = (props) => {
   const increase = () => {
     emblaApi.scrollNext();
     props.increase();
+    console.log(emblaApi.selectedScrollSnap());
   };
   const decrease = () => {
     emblaApi.scrollPrev();
@@ -25,7 +26,7 @@ const Lightbox = (props) => {
   };
 
   return (
-    <div className={classes.lightboxContainer}>
+    <div className={classes.lightboxContainer} ref={props.ref}>
       <div className={classes.lightbox_buttons}>
         <button onClick={decrease} className="btn">
           prev
