@@ -2,7 +2,7 @@
 .lightboxContainer {
   position: absolute;
   z-index: 98;
-  overflow-y: scroll;
+  overflow-y: auto;
   /* overflow-x: hidden; */
   top: 0;
   bottom: 0;
