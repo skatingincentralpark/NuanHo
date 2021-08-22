@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import * as classes from "./lightbox.module.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -13,20 +13,32 @@ const Lightbox = (props) => {
     skipSnaps: false,
     containScroll: "trimSnaps",
     loop: true,
+    // pointerUp: () => {
+    //   console.log(emblaApi.selectedScrollSnap());
+    // },
   });
+
+  // useEffect(() => {
+  //     console.log(emblaApi.selectedScrollSnap());
+  // }, []);
+
+  // console.log(emblaRef);
 
   const increase = () => {
     emblaApi.scrollNext();
-    props.increase();
-    console.log(emblaApi.selectedScrollSnap());
+    props.setCurrIndexHandler(emblaApi.selectedScrollSnap());
   };
   const decrease = () => {
     emblaApi.scrollPrev();
-    props.decrease();
+    props.setCurrIndexHandler(emblaApi.selectedScrollSnap());
   };
 
+  // emblaRef.on("pointerUp", () => {
+  //   console.log(emblaApi.selectedScrollSnap());
+  // });
+
   return (
-    <div className={classes.lightboxContainer} ref={props.ref}>
+    <>
       <div className={classes.lightbox_buttons}>
         <button onClick={decrease} className="btn">
           prev
@@ -61,7 +73,7 @@ const Lightbox = (props) => {
         />
       )}
       <div className={classes.backdrop} />
-    </div>
+    </>
   );
 };
 

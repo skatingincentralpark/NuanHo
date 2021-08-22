@@ -164,6 +164,15 @@ footer {
   transform: translateX(-50%);
 }
 
+/* lightbox container */
+.lightbox-container {
+  position: absolute;
+  z-index: 98;
+  overflow-y: auto;
+  top: 0;
+  bottom: 0;
+}
+
 /* css transition for lightbox */
 
 .fade-enter {

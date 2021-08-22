@@ -52,16 +52,17 @@ const Archive = (props) => {
         classNames="fade"
       >
         {props.fullSizeData && (
-          <Lightbox
-            hide={hideLightboxHandler}
-            fullSizeData={props.fullSizeData}
-            currIndex={currIndex}
-            increase={increaseCurrIndexHandler}
-            decrease={decreaseCurrIndexHandler}
-            setCurrIndexHandler={setCurrIndexHandler}
-            ref={targetRef}
-          />
-          // <TestLightbox />
+          <div className="lightbox-container" ref={targetRef}>
+            <Lightbox
+              hide={hideLightboxHandler}
+              fullSizeData={props.fullSizeData}
+              currIndex={currIndex}
+              increase={increaseCurrIndexHandler}
+              decrease={decreaseCurrIndexHandler}
+              setCurrIndexHandler={setCurrIndexHandler}
+            />
+            {/* <TestLightbox /> */}
+          </div>
         )}
       </CSSTransition>
 
