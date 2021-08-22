@@ -164,29 +164,6 @@ footer {
   transform: translateX(-50%);
 }
 
-/* slick carousel */
-/* .slick-track {
-  display: flex !important;
-  align-items: center !important;
-}
-.slick-slider {
-  z-index: 1;
-}
-.slick-slide {
-  max-height: 100vh;
-}
-.slick-slide div {
-  outline: none;
-}
-.slide-single {
-  padding: 6vh 6vw 3vh 6vw;
-  height: 100%;
-}
-.slide-single div {
-  margin: auto;
-  display: flex;
-} */
-
 /* css transition for lightbox */
 
 .fade-enter {
@@ -202,6 +179,17 @@ footer {
 .fade-exit-active {
   opacity: 0;
   transition: opacity 0.25s;
+}
+
+/* test lightbox */
+.test-lightbox {
+  position: absolute;
+  z-index: 99;
+  background-color: white;
+  overflow-y: auto;
+  overflow-x: hidden;
+  top: 0;
+  bottom: 0;
 }
 
 @media only screen and (min-width: 596px) {
