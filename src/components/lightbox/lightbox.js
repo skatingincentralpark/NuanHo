@@ -38,7 +38,7 @@ const Lightbox = (props) => {
   };
 
   return (
-    <>
+    <div className={classes.lightbox_inner}>
       <div className={classes.lightbox_buttons}>
         <button onClick={decrease} className="btn">
           prev
@@ -74,7 +74,7 @@ const Lightbox = (props) => {
         />
       )}
       <div className={classes.backdrop} />
-    </>
+    </div>
   );
 };
 
