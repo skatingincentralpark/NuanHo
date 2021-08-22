@@ -4,17 +4,18 @@ import { CSSTransition } from "react-transition-group";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 import Lightbox from "../lightbox/lightbox";
-import TestLightbox from "../lightbox/testlightbox";
 import * as classes from "./archive.module.css";
 
 const Archive = (props) => {
   const [currIndex, setCurrIndex] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
   const [showLightbox, setShowLightbox] = useState(false);
 
   const targetRef = useRef(null);
 
   const currIndexHandler = (e) => {
     setCurrIndex(parseInt(e.target.getAttribute("data-index")));
+    setStartIndex(parseInt(e.target.getAttribute("data-index")));
     setShowLightbox(true);
     disableBodyScroll(targetRef);
   };
@@ -57,11 +58,11 @@ const Archive = (props) => {
               hide={hideLightboxHandler}
               fullSizeData={props.fullSizeData}
               currIndex={currIndex}
+              startIndex={startIndex}
               increase={increaseCurrIndexHandler}
               decrease={decreaseCurrIndexHandler}
               setCurrIndexHandler={setCurrIndexHandler}
             />
-            {/* <TestLightbox /> */}
           </div>
         )}
       </CSSTransition>

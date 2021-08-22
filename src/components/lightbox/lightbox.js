@@ -13,16 +13,20 @@ const Lightbox = (props) => {
     skipSnaps: false,
     containScroll: "trimSnaps",
     loop: true,
-    // pointerUp: () => {
-    //   console.log(emblaApi.selectedScrollSnap());
-    // },
+    startIndex: props.startIndex,
   });
 
-  // useEffect(() => {
-  //     console.log(emblaApi.selectedScrollSnap());
-  // }, []);
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("pointerUp", () => {
+      props.setCurrIndexHandler(emblaApi.selectedScrollSnap());
+    });
+  }, [emblaApi, props]);
 
-  // console.log(emblaRef);
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.scrollTo(props.currIndex);
+  }, [emblaApi, props.currIndex]);
 
   const increase = () => {
     emblaApi.scrollNext();
@@ -32,10 +36,6 @@ const Lightbox = (props) => {
     emblaApi.scrollPrev();
     props.setCurrIndexHandler(emblaApi.selectedScrollSnap());
   };
-
-  // emblaRef.on("pointerUp", () => {
-  //   console.log(emblaApi.selectedScrollSnap());
-  // });
 
   return (
     <>
@@ -67,7 +67,7 @@ const Lightbox = (props) => {
         </div>
       </div>
 
-      {emblaApi && (
+      {props.fullSizeData && (
         <LightboxInfo
           frontmatter={props.fullSizeData[props.currIndex].node.frontmatter}
         />
