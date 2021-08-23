@@ -12,6 +12,7 @@ body {
   margin: 0;
   height: 100%;
   min-height: 100vh;
+  /* min-height: -webkit-fill-available; */
 }
 
 /* highlight */
@@ -108,16 +109,13 @@ footer {
 /* home */
 .gallery {
   padding-top: 5vh;
-  /* display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0.25em; */
   display: flex;
   gap: 0.25em;
   align-items: center;
   justify-content: center;
 }
 .gallery div {
-  height: 70vh;
+  height: 65vh;
 }
 .gallery img {
   height: 100%;
@@ -141,7 +139,10 @@ footer {
   font-family: "Courier New", Courier, monospace;
 }
 .artist-text h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
+}
+.artist-text h2 {
+  font-size: 1.25rem;
 }
 .artist-text p {
   margin: 0;
@@ -216,6 +217,9 @@ footer {
   }
   .slide-single {
     padding: 0;
+  }
+  .gallery div {
+    height: 70vh;
   }
 }
 
