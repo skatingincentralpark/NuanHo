@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 const HeaderPopup = (props) => {
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    if (props.showNav) {
+      document.getElementsByTagName("html")[0].style.overflow = "hidden";
+      disableBodyScroll(targetRef.current);
+    } else {
+      enableBodyScroll(targetRef.current);
+      document.getElementsByTagName("html")[0].style = "";
+    }
+  }, [props.showNav]);
+
   const { about } = useStaticQuery(
     graphql`
       query MyQuery {
@@ -27,7 +40,7 @@ const HeaderPopup = (props) => {
   );
 
   return (
-    <div className="header-info">
+    <div className="header-info" ref={targetRef}>
       <p>
         E: {about.edges[0].node.frontmatter.email}
         <br />
