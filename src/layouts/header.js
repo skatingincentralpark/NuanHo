@@ -20,7 +20,7 @@ const Header = ({ location }) => {
 
   return (
     <>
-      <header ref={targetRef}>
+      <header>
         <div className="header-inner">
           <button onClick={showNavHandler} className="btn">
             [info]
@@ -36,7 +36,7 @@ const Header = ({ location }) => {
           )}
         </div>
       </header>
-      {showNav && <HeaderPopup />}
+      {showNav && <HeaderPopup ref={targetRef} />}
     </>
   );
 };

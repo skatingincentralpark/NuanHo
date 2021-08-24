@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-const HeaderPopup = () => {
+const HeaderPopup = (props) => {
   const { about } = useStaticQuery(
     graphql`
       query MyQuery {
@@ -27,7 +27,7 @@ const HeaderPopup = () => {
   );
 
   return (
-    <div className="header-info">
+    <div className="header-info" ref={props.ref}>
       <p>
         E: {about.edges[0].node.frontmatter.email}
         <br />
