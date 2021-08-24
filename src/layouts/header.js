@@ -6,7 +6,7 @@ import HeaderPopup from "./headerPopup";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 const Header = ({ location }) => {
-  const targetRef = useRef();
+  const targetRef = useRef(null);
   const [showNav, setShowNav] = useState(false);
 
   const showNavHandler = () => {
@@ -38,8 +38,8 @@ const Header = ({ location }) => {
       </header>
       {/* {showNav && <HeaderPopup ref={targetRef} />} */}
       {showNav && (
-        <div className="test-modal" ref={targetRef}>
-          <div className="test-modal-inner">
+        <div className="test-modal">
+          <div className="test-modal-inner" ref={targetRef}>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam,
               deserunt quod. Esse soluta commodi repudiandae. Voluptatem
