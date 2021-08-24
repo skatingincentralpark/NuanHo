@@ -11,9 +11,9 @@ const Header = ({ location }) => {
 
   const showNavHandler = () => {
     if (showNav) {
-      enableBodyScroll(targetRef);
+      enableBodyScroll(targetRef.current);
     } else {
-      disableBodyScroll(targetRef);
+      disableBodyScroll(targetRef.current);
     }
     setShowNav((prev) => !prev);
   };
