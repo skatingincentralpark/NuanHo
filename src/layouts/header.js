@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import { Link } from "gatsby";
 
@@ -9,12 +9,20 @@ const Header = ({ location }) => {
   const targetRef = useRef();
   const [showNav, setShowNav] = useState(false);
 
+  const html = document.querySelector("html");
+
+  useEffect(() => {
+    showNav
+      ? (html.style.overflow = "hidden")
+      : (html.style.overflow = "visible");
+  }, [showNav]);
+
   const showNavHandler = () => {
-    if (showNav) {
-      enableBodyScroll(targetRef);
-    } else {
-      disableBodyScroll(targetRef);
-    }
+    // if (showNav) {
+    //   enableBodyScroll(targetRef);
+    // } else {
+    //   disableBodyScroll(targetRef);
+    // }
     setShowNav((prev) => !prev);
   };
 
