@@ -119,18 +119,32 @@ footer {
 }
 
 /* TEST MODAL DELETE */
-.test-modal {
+/* .test-modal {
   position: fixed;
   background-color: white;
   z-index: 97;
-  /* top: 0;
-  left: 0; */
+  top: 0;
   width: 100%;
   padding: 20vh 20vw;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   text-align: center;
   height: calc(100% + 1px);
+} */
+
+.test-modal {
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 80vw;
+  width: 500px;
+  height: 60vh;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 2px solid #ff1a35;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* home */
