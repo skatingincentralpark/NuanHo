@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 
 import { Link } from "gatsby";
 
@@ -9,20 +9,12 @@ const Header = ({ location }) => {
   const targetRef = useRef();
   const [showNav, setShowNav] = useState(false);
 
-  const html = document.querySelector("html");
-
-  useEffect(() => {
-    showNav
-      ? (html.style.overflow = "hidden")
-      : (html.style.overflow = "visible");
-  }, [showNav]);
-
   const showNavHandler = () => {
-    // if (showNav) {
-    //   enableBodyScroll(targetRef);
-    // } else {
-    //   disableBodyScroll(targetRef);
-    // }
+    if (showNav) {
+      enableBodyScroll(targetRef);
+    } else {
+      disableBodyScroll(targetRef);
+    }
     setShowNav((prev) => !prev);
   };
 
@@ -46,8 +38,8 @@ const Header = ({ location }) => {
       </header>
       {/* {showNav && <HeaderPopup ref={targetRef} />} */}
       {showNav && (
-        <div className="test-modal">
-          <div className="test-modal-inner" ref={targetRef}>
+        <div className="test-modal" ref={targetRef}>
+          <div className="test-modal-inner">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam,
               deserunt quod. Esse soluta commodi repudiandae. Voluptatem

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { CSSTransition } from "react-transition-group";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
@@ -13,19 +13,11 @@ const Archive = (props) => {
 
   const targetRef = useRef(null);
 
-  const html = document.querySelector("html");
-
-  useEffect(() => {
-    showLightbox
-      ? (html.style.overflow = "hidden")
-      : (html.style.overflow = "visible");
-  }, [showLightbox]);
-
   const currIndexHandler = (e) => {
     setCurrIndex(parseInt(e.target.getAttribute("data-index")));
     setStartIndex(parseInt(e.target.getAttribute("data-index")));
     setShowLightbox(true);
-    // disableBodyScroll(targetRef);
+    disableBodyScroll(targetRef);
   };
 
   const increaseCurrIndexHandler = () => {
@@ -49,7 +41,7 @@ const Archive = (props) => {
 
   const hideLightboxHandler = () => {
     setShowLightbox(false);
-    // enableBodyScroll(targetRef);
+    enableBodyScroll(targetRef);
   };
 
   return (
