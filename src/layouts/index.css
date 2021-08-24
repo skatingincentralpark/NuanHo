@@ -102,6 +102,7 @@ footer {
   padding: 20vh 20vw;
   overflow-y: auto;
   text-align: center;
+  -webkit-overflow-scrolling: touch;
 }
 .header-info .show {
   display: block;
