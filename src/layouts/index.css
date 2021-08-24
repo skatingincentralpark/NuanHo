@@ -97,12 +97,13 @@ footer {
   z-index: 97;
   top: 0;
   left: 0;
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   padding: 20vh 20vw;
   overflow-y: auto;
-  text-align: center;
   -webkit-overflow-scrolling: touch;
+  text-align: center;
+  height: calc(100% + 1px);
 }
 .header-info .show {
   display: block;
