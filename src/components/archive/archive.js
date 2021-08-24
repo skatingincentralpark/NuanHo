@@ -17,7 +17,7 @@ const Archive = (props) => {
     setCurrIndex(parseInt(e.target.getAttribute("data-index")));
     setStartIndex(parseInt(e.target.getAttribute("data-index")));
     setShowLightbox(true);
-    // disableBodyScroll(targetRef);
+    disableBodyScroll(targetRef);
   };
 
   const increaseCurrIndexHandler = () => {
@@ -41,7 +41,7 @@ const Archive = (props) => {
 
   const hideLightboxHandler = () => {
     setShowLightbox(false);
-    // enableBodyScroll(targetRef);
+    enableBodyScroll(targetRef);
   };
 
   return (

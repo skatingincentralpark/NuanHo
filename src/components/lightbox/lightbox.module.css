@@ -1,6 +1,6 @@
 /* parent */
 .lightboxContainer {
-  position: fixed;
+  position: absolute;
   z-index: 98;
   overflow-y: auto;
   /* overflow-x: hidden; */

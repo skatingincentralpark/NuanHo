@@ -21,18 +21,20 @@ const Header = ({ location }) => {
   return (
     <>
       <header ref={targetRef}>
-        <button onClick={showNavHandler} className="btn">
-          [info]
-        </button>
-        {location.pathname === "/" ? (
-          <Link className="nav-btn" to="/archive">
-            [archive]
-          </Link>
-        ) : (
-          <Link className="nav-btn" to="/">
-            [home]
-          </Link>
-        )}
+        <div className="header-inner">
+          <button onClick={showNavHandler} className="btn">
+            [info]
+          </button>
+          {location.pathname === "/" ? (
+            <Link className="nav-btn" to="/archive">
+              [archive]
+            </Link>
+          ) : (
+            <Link className="nav-btn" to="/">
+              [home]
+            </Link>
+          )}
+        </div>
       </header>
       {showNav && <HeaderPopup />}
     </>

@@ -67,9 +67,18 @@ a {
 /* header */
 header {
   position: fixed;
-  top: 2vh;
-  right: 2vw;
   z-index: 98;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+}
+.header-inner button,
+.header-inner a {
+  padding: 1vh 2vw 1vh 2vw;
+  margin: 0;
+}
+.header-inner {
 }
 header a:hover {
   color: rgb(192, 192, 192);
@@ -167,7 +176,7 @@ footer {
 
 /* lightbox container */
 .lightbox-container {
-  position: absolute;
+  position: fixed;
   z-index: 98;
   overflow-y: auto;
   top: 0;
@@ -206,6 +215,12 @@ footer {
   .embla__slide {
     padding-top: 0;
   }
+  /* header */
+  .header-inner button,
+  .header-inner a {
+    padding: 1.5vh 2vw 1.5vh 2vw;
+    margin: 0;
+  }
 }
 
 @media only screen and (min-width: 796px) {
@@ -220,6 +235,13 @@ footer {
   }
   .gallery div {
     height: 70vh;
+  }
+  /* header */
+  .header-inner button {
+    padding-right: 1vw;
+  }
+  .header-inner a {
+    padding-left: 1vw;
   }
 }
 
