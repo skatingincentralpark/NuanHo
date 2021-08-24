@@ -27,7 +27,7 @@ const HeaderPopup = (props) => {
   );
 
   return (
-    <div className="header-info" ref={props.ref}>
+    <div className="header-info">
       <p>
         E: {about.edges[0].node.frontmatter.email}
         <br />

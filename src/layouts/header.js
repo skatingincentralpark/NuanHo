@@ -10,11 +10,11 @@ const Header = ({ location }) => {
   const [showNav, setShowNav] = useState(false);
 
   const showNavHandler = () => {
-    if (showNav) {
-      enableBodyScroll(targetRef);
-    } else {
-      disableBodyScroll(targetRef);
-    }
+    // if (showNav) {
+    //   enableBodyScroll(targetRef);
+    // } else {
+    //   disableBodyScroll(targetRef);
+    // }
     setShowNav((prev) => !prev);
   };
 
@@ -38,7 +38,10 @@ const Header = ({ location }) => {
       </header>
       {/* {showNav && <HeaderPopup ref={targetRef} />} */}
       {showNav && (
-        <div className="test-modal" ref={targetRef}>
+        <div
+          className="test-modal"
+          // ref={targetRef}
+        >
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam,
             deserunt quod. Esse soluta commodi repudiandae. Voluptatem
