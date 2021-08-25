@@ -1,15 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
+import { clearAllBodyScrollLocks } from "body-scroll-lock";
 import { Link } from "gatsby";
 
 import HeaderPopup from "./headerPopup";
 
 const Header = ({ location }) => {
   const [showNav, setShowNav] = useState(false);
+  const [isLocked, setIsLocked] = useState(false);
 
   const showNavHandler = () => {
-    setShowNav((prev) => !prev);
+    if (!showNav) {
+      setShowNav((prev) => true);
+      setIsLocked((prev) => true);
+    } else {
+      setIsLocked((prev) => false);
+      // setShowNav((prev) => false);
+    }
   };
+
+  useEffect(() => {
+    if (!isLocked) {
+      setShowNav((prev) => false);
+    } else {
+      return;
+    }
+  }, [isLocked]);
 
   return (
     <>
@@ -29,7 +45,13 @@ const Header = ({ location }) => {
           )}
         </div>
       </header>
-      {showNav && <HeaderPopup showNav={showNav} />}
+      {showNav && (
+        <HeaderPopup
+          showNav={showNav}
+          isLocked={isLocked}
+          showNavHandler={showNavHandler}
+        />
+      )}
     </>
   );
 };

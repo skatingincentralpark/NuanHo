@@ -1,19 +1,34 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock";
 
 const HeaderPopup = (props) => {
   const targetRef = useRef(null);
 
   useEffect(() => {
-    if (props.showNav) {
+    if (props.isLocked) {
+      console.log("no 1");
       document.getElementsByTagName("html")[0].style.overflow = "hidden";
       disableBodyScroll(targetRef.current);
     } else {
       enableBodyScroll(targetRef.current);
       document.getElementsByTagName("html")[0].style = "";
+      props.showNavHandler();
     }
-  }, [props.showNav]);
+  }, [props]);
+
+  const toggle = () => {
+    disableBodyScroll(targetRef.current);
+  };
+  const togglelol = () => {
+    clearAllBodyScrollLocks();
+    document.getElementsByTagName("html")[0].style = "";
+    console.log("cleared");
+  };
 
   const { about } = useStaticQuery(
     graphql`
@@ -41,6 +56,8 @@ const HeaderPopup = (props) => {
 
   return (
     <div className="header-info" ref={targetRef}>
+      <button onClick={togglelol}>enable</button>
+      <button onClick={toggle}>disable</button>
       <p>
         E: {about.edges[0].node.frontmatter.email}
         <br />
