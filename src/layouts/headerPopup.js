@@ -11,24 +11,18 @@ const HeaderPopup = (props) => {
 
   useEffect(() => {
     if (props.isLocked) {
-      console.log("no 1");
-      document.getElementsByTagName("html")[0].style.overflow = "hidden";
+      // document.getElementsByTagName("html")[0].style.overflow = "hidden";
       disableBodyScroll(targetRef.current);
     } else {
       enableBodyScroll(targetRef.current);
-      document.getElementsByTagName("html")[0].style = "";
+      // document.getElementsByTagName("html")[0].style = "";
       props.showNavHandler();
     }
-  }, [props]);
 
-  const toggle = () => {
-    disableBodyScroll(targetRef.current);
-  };
-  const togglelol = () => {
-    clearAllBodyScrollLocks();
-    document.getElementsByTagName("html")[0].style = "";
-    console.log("cleared");
-  };
+    return () => {
+      clearAllBodyScrollLocks();
+    };
+  }, [props]);
 
   const { about } = useStaticQuery(
     graphql`
@@ -56,8 +50,6 @@ const HeaderPopup = (props) => {
 
   return (
     <div className="header-info" ref={targetRef}>
-      <button onClick={togglelol}>enable</button>
-      <button onClick={toggle}>disable</button>
       <p>
         E: {about.edges[0].node.frontmatter.email}
         <br />
