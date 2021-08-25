@@ -15,7 +15,6 @@ const Header = ({ location }) => {
       setIsLocked((prev) => true);
     } else {
       setIsLocked((prev) => false);
-      // setShowNav((prev) => false);
     }
   };
 
