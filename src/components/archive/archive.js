@@ -46,25 +46,31 @@ const Archive = (props) => {
 
   return (
     <>
+      <div className={classes.intro}>
+        <h1>Nuan Ho</h1>
+        <h2>Archive</h2>
+      </div>
       <CSSTransition
         in={showLightbox}
         timeout={250}
         unmountOnExit
         classNames="fade"
       >
-        {props.fullSizeData && (
-          <div className="lightbox-container" ref={targetRef}>
-            <Lightbox
-              hide={hideLightboxHandler}
-              fullSizeData={props.fullSizeData}
-              currIndex={currIndex}
-              startIndex={startIndex}
-              increase={increaseCurrIndexHandler}
-              decrease={decreaseCurrIndexHandler}
-              setCurrIndexHandler={setCurrIndexHandler}
-            />
-          </div>
-        )}
+        <>
+          {props.fullSizeData && (
+            <div className="lightbox-container" ref={targetRef}>
+              <Lightbox
+                hide={hideLightboxHandler}
+                fullSizeData={props.fullSizeData}
+                currIndex={currIndex}
+                startIndex={startIndex}
+                increase={increaseCurrIndexHandler}
+                decrease={decreaseCurrIndexHandler}
+                setCurrIndexHandler={setCurrIndexHandler}
+              />
+            </div>
+          )}
+        </>
       </CSSTransition>
 
       {props.data && (
