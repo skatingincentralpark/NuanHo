@@ -59,7 +59,7 @@ const YearNavigation = (props) => {
         {years.sortedArrHidden && (
           <>
             <button
-              className={`btn ${selectedYear == "" && classes.btnActive}`}
+              className={`btn ${selectedYear === "" && classes.btnActive}`}
               onClick={filterClickHandler}
               value=""
             >
@@ -67,7 +67,7 @@ const YearNavigation = (props) => {
             </button>
             {years.sortedArrShown.map((year) => (
               <button
-                className={`btn ${selectedYear == year && classes.btnActive}`}
+                className={`btn ${selectedYear === year && classes.btnActive}`}
                 onClick={filterClickHandler}
                 value={year}
                 key={year}
@@ -81,7 +81,7 @@ const YearNavigation = (props) => {
                   {years.sortedArrHidden.map((year) => (
                     <button
                       className={`btn ${
-                        selectedYear == year && classes.btnActive
+                        selectedYear === year && classes.btnActive
                       }`}
                       onClick={filterClickHandler}
                       value={year}

@@ -1,7 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { CSSTransition } from "react-transition-group";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 import Lightbox from "../lightbox/lightbox";
 import * as classes from "./archive.module.css";
@@ -11,14 +10,26 @@ const Archive = (props) => {
   const [startIndex, setStartIndex] = useState(0);
   const [showLightbox, setShowLightbox] = useState(false);
 
-  const targetRef = useRef(null);
-
   const currIndexHandler = (e) => {
     setCurrIndex(parseInt(e.target.getAttribute("data-index")));
     setStartIndex(parseInt(e.target.getAttribute("data-index")));
     setShowLightbox(true);
-    // disableBodyScroll(targetRef);
   };
+
+  // scroll lock when lightbox is open
+  useEffect(() => {
+    if (showLightbox) {
+      document.getElementsByTagName("body")[0].style.overflow = "hidden";
+      // document.getElementsByTagName("html")[0].style.position = "fixed";
+    } else {
+      document.getElementsByTagName("body")[0].style = "";
+      // document.getElementsByTagName("html")[0].style = "";
+    }
+
+    return () => {
+      document.getElementsByTagName("body")[0].style = "";
+    };
+  }, [showLightbox]);
 
   const increaseCurrIndexHandler = () => {
     if (currIndex === props.fullSizeData.length - 1) {
@@ -41,7 +52,6 @@ const Archive = (props) => {
 
   const hideLightboxHandler = () => {
     setShowLightbox(false);
-    // enableBodyScroll(targetRef);
   };
 
   return (
@@ -58,7 +68,7 @@ const Archive = (props) => {
       >
         <>
           {props.fullSizeData && (
-            <div className="lightbox-container" ref={targetRef}>
+            <div className="lightbox-container">
               <Lightbox
                 hide={hideLightboxHandler}
                 fullSizeData={props.fullSizeData}

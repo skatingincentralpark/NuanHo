@@ -15,7 +15,6 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "body-scroll-lock": "*",
     "embla-carousel": "^4.5.3",
     "gatsby": "^3.11.0",
     "gatsby-plugin-image": "^1.11.0",

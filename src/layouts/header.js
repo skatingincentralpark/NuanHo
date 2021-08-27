@@ -1,30 +1,33 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-import { clearAllBodyScrollLocks } from "body-scroll-lock";
 import { Link } from "gatsby";
 
 import HeaderPopup from "./headerPopup";
 
 const Header = ({ location }) => {
   const [showNav, setShowNav] = useState(false);
-  const [isLocked, setIsLocked] = useState(false);
+
+  useEffect(() => {
+    if (showNav) {
+      document.getElementsByTagName("body")[0].style.overflow = "hidden";
+      // document.getElementsByTagName("html")[0].style.position = "fixed";
+    } else {
+      document.getElementsByTagName("body")[0].style = "";
+      // document.getElementsByTagName("html")[0].style = "";
+    }
+
+    return () => {
+      document.getElementsByTagName("body")[0].style = "";
+    };
+  }, [showNav]);
 
   const showNavHandler = () => {
     if (!showNav) {
-      setShowNav((prev) => true);
-      setIsLocked((prev) => true);
+      setShowNav(true);
     } else {
-      setIsLocked((prev) => false);
+      setShowNav(false);
     }
   };
-
-  useEffect(() => {
-    if (!isLocked) {
-      setShowNav((prev) => false);
-    } else {
-      return;
-    }
-  }, [isLocked]);
 
   return (
     <>
@@ -45,11 +48,7 @@ const Header = ({ location }) => {
         </div>
       </header>
       {showNav && (
-        <HeaderPopup
-          showNav={showNav}
-          isLocked={isLocked}
-          showNavHandler={showNavHandler}
-        />
+        <HeaderPopup showNav={showNav} showNavHandler={showNavHandler} />
       )}
     </>
   );
