@@ -7,13 +7,12 @@ import HeaderPopup from "./headerPopup";
 const Header = ({ location }) => {
   const [showNav, setShowNav] = useState(false);
 
+  // Lock body when popup is open
   useEffect(() => {
     if (showNav) {
       document.getElementsByTagName("body")[0].style.overflow = "hidden";
-      // document.getElementsByTagName("html")[0].style.position = "fixed";
     } else {
       document.getElementsByTagName("body")[0].style = "";
-      // document.getElementsByTagName("html")[0].style = "";
     }
 
     return () => {
@@ -47,9 +46,7 @@ const Header = ({ location }) => {
           )}
         </div>
       </header>
-      {showNav && (
-        <HeaderPopup showNav={showNav} showNavHandler={showNavHandler} />
-      )}
+      {showNav && <HeaderPopup showNavHandler={showNavHandler} />}
     </>
   );
 };

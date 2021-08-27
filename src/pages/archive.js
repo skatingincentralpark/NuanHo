@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import { graphql } from "gatsby";
 
-import Layout from "../layouts/index";
 import Seo from "../components/seo/seo";
 import Archive from "../components/archive/archive";
 import YearNavigation from "../components/archive/yearNavigation";
@@ -37,7 +36,7 @@ const ArchivePage = (props) => {
   };
 
   return (
-    <Layout location={props.location}>
+    <>
       <Seo title="Archive" description="Archive of past artworks by Nuan Ho." />
       <YearNavigation handleClick={handleClick} />
       <Archive
@@ -45,7 +44,7 @@ const ArchivePage = (props) => {
         fullSizeData={fullSizeData}
         location={props.location}
       />
-    </Layout>
+    </>
   );
 };
 

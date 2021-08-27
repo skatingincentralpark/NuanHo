@@ -16,17 +16,13 @@ const Lightbox = (props) => {
     startIndex: props.startIndex,
   });
 
+  // Update index on finger / mouse scroll
   useEffect(() => {
     if (!emblaApi) return;
     emblaApi.on("pointerUp", () => {
       props.setCurrIndexHandler(emblaApi.selectedScrollSnap());
     });
   }, [emblaApi, props]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    emblaApi.scrollTo(props.currIndex);
-  }, [emblaApi, props.currIndex]);
 
   const increase = () => {
     emblaApi.scrollNext();

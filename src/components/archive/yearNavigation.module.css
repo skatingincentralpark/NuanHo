@@ -1,18 +1,25 @@
 /* archive */
 .archiveBtns {
-  margin: 2vh 150px 0 2vw;
+  padding: 1.5vh 150px 1.5vh 3vw;
+  background-color: white;
   position: fixed;
-  z-index: 95;
+  z-index: 96;
 }
 .archiveBtns button:hover {
-  color: rgb(192, 192, 192);
+  color: white;
 }
 .archiveBtnsMore {
   display: inline;
 }
 .btnActive {
-  color: rgb(192, 192, 192);
+  color: rgb(150, 150, 150);
 }
 .archiveBtnsMoreDropdown {
   display: inline;
+}
+
+@media only screen and (min-width: 596px) {
+  .archiveBtns {
+    width: 100%;
+  }
 }

@@ -1,9 +1,9 @@
 /* main container */
 .archiveGallery {
-  padding: 2em 3vw 0 3vw;
+  padding: 2em 3vw 5vh 3vw;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4em 2em;
+  gap: 4em 1em;
 }
 
 .intro {
@@ -11,7 +11,8 @@
 }
 
 /* hover and transitions */
-.archiveGalleryItem div:first-child:hover {
+
+.archiveGalleryItem:hover div:first-child {
   filter: invert(1) sepia(0.5);
   transform: translateX(5px);
   transition: 0s;
@@ -32,9 +33,13 @@
 .archiveInfo small {
   color: gray;
 }
+.archiveInfo * {
+  position: relative;
+}
 .archiveTitle {
   font-size: 1.2rem;
   min-height: 4.5em;
+  position: relative;
 }
 .archiveDescription {
   font-style: italic;
@@ -54,6 +59,10 @@
 @media screen and (min-width: 769px) {
   .archiveGallery {
     grid-template-columns: repeat(6, 1fr);
+    padding: 2em 3vw 5vh 3vw;
+  }
+  .intro {
+    padding: 10vh 0 0 3vw;
   }
 }
 

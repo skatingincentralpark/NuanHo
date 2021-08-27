@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import Layout from "../layouts/index";
 import Seo from "../components/seo/seo";
 
 const IndexPage = (props) => {
@@ -18,7 +17,7 @@ const IndexPage = (props) => {
   }, [props.data.featuredArtwork.edges]);
 
   return (
-    <Layout location={props.location}>
+    <>
       <Seo title="Home" />
       {props.data && (
         <div className="gallery">
@@ -31,7 +30,7 @@ const IndexPage = (props) => {
           ))}
         </div>
       )}
-    </Layout>
+    </>
   );
 };
 

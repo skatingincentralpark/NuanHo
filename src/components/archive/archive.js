@@ -10,41 +10,27 @@ const Archive = (props) => {
   const [startIndex, setStartIndex] = useState(0);
   const [showLightbox, setShowLightbox] = useState(false);
 
-  const currIndexHandler = (e) => {
+  // Show lightbox with selected variant
+  const showLightboxHandler = (e) => {
     setCurrIndex(parseInt(e.target.getAttribute("data-index")));
     setStartIndex(parseInt(e.target.getAttribute("data-index")));
     setShowLightbox(true);
   };
 
-  // scroll lock when lightbox is open
+  // Scroll lock when lightbox is open
   useEffect(() => {
     if (showLightbox) {
       document.getElementsByTagName("body")[0].style.overflow = "hidden";
-      // document.getElementsByTagName("html")[0].style.position = "fixed";
+      document.getElementsByTagName("html")[0].style.paddingRight = "7px";
     } else {
       document.getElementsByTagName("body")[0].style = "";
-      // document.getElementsByTagName("html")[0].style = "";
+      document.getElementsByTagName("html")[0].style.paddingRight = "0";
     }
 
     return () => {
       document.getElementsByTagName("body")[0].style = "";
     };
   }, [showLightbox]);
-
-  const increaseCurrIndexHandler = () => {
-    if (currIndex === props.fullSizeData.length - 1) {
-      setCurrIndex(0);
-    } else if (currIndex < props.fullSizeData.length - 1) {
-      setCurrIndex((prev) => parseInt(prev) + 1);
-    }
-  };
-  const decreaseCurrIndexHandler = () => {
-    if (currIndex === 0) {
-      setCurrIndex(props.fullSizeData.length - 1);
-    } else if (currIndex > 0) {
-      setCurrIndex((prev) => parseInt(prev) - 1);
-    }
-  };
 
   const setCurrIndexHandler = (index) => {
     setCurrIndex(index);
@@ -74,8 +60,6 @@ const Archive = (props) => {
                 fullSizeData={props.fullSizeData}
                 currIndex={currIndex}
                 startIndex={startIndex}
-                increase={increaseCurrIndexHandler}
-                decrease={decreaseCurrIndexHandler}
                 setCurrIndexHandler={setCurrIndexHandler}
               />
             </div>
@@ -91,7 +75,7 @@ const Archive = (props) => {
                 image={getImage(edge.node.frontmatter.image.childImageSharp)}
                 alt={edge.node.frontmatter.title}
                 data-index={i}
-                onClick={currIndexHandler}
+                onClick={showLightboxHandler}
               />
               <div className={classes.archiveInfo}>
                 <small>{edge.node.frontmatter.date}</small>

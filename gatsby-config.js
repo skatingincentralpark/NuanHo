@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://www.nuanho.netlify.app",
     title: "Nuan Ho",
     description: "Official website for the Australian artist Nuan Ho.",
     author: "Nuan Ho",

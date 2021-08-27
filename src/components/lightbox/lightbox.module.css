@@ -3,7 +3,6 @@
   position: absolute;
   z-index: 98;
   overflow-y: auto;
-  /* overflow-x: hidden; */
   top: 0;
   bottom: 0;
 }
@@ -24,8 +23,8 @@
 .lightbox_buttons {
   position: fixed;
   z-index: 100;
-  top: 2vh;
-  right: 2vw;
+  top: 1.5vh;
+  right: 3vw;
   user-select: none;
 }
 .lightbox_buttons button:last-child {
