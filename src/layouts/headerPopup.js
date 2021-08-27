@@ -11,12 +11,12 @@ const HeaderPopup = (props) => {
 
   useEffect(() => {
     if (props.isLocked) {
-      // document.getElementsByTagName("html")[0].style.overflow = "hidden";
+      document.getElementsByTagName("body")[0].style.overflow = "hidden";
       // document.getElementsByTagName("html")[0].style.position = "fixed";
-      disableBodyScroll(targetRef.current);
+      // disableBodyScroll(targetRef.current);
     } else {
-      enableBodyScroll(targetRef.current);
-      // document.getElementsByTagName("html")[0].style = "";
+      // enableBodyScroll(targetRef.current);
+      document.getElementsByTagName("body")[0].style = "";
       // document.getElementsByTagName("html")[0].style = "";
       props.showNavHandler();
     }

@@ -2,11 +2,13 @@ html {
   font-family: "Courier New", Courier, monospace;
   color: #272727;
   font-size: 12px;
+  height: 100%;
   /* scroll-behavior: smooth; */
 }
 
 body {
   margin: 0;
+  height: 100%;
 }
 
 /* highlight */
