@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+import { CSSTransition } from "react-transition-group";
 import { Link } from "gatsby";
 
 import HeaderPopup from "./headerPopup";
@@ -46,7 +47,9 @@ const Header = ({ location }) => {
           )}
         </div>
       </header>
-      {showNav && <HeaderPopup showNavHandler={showNavHandler} />}
+      <CSSTransition in={showNav} timeout={250} unmountOnExit classNames="fade">
+        <HeaderPopup showNavHandler={showNavHandler} />
+      </CSSTransition>
     </>
   );
 };

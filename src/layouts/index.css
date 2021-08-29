@@ -72,6 +72,7 @@ button {
     width: 100%;
     opacity: 1;
   }
+
   100% {
     width: 100%;
     opacity: 1;
@@ -80,11 +81,31 @@ button {
 
 .btn:hover::after,
 .nav-btn:hover::after {
-  animation: highlight 0.5s;
+  /* animation: highlight 0.5s both, reverse; */
+  width: 100%;
+  opacity: 1;
+  transition: 0.1s;
+  -moz-transition: 0.1s;
+  -o-transition: 0.1s;
+  -webkit-transition: 0.1s;
 }
+.btn::after,
+.nav-btn::after {
+  width: 0;
+  opacity: 0;
+  transition: 0.25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  -moz-transition: 0.25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  -o-transition: 0.25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  -webkit-transition: 0.25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
 .btn:hover,
 .nav-btn:hover {
   color: white;
+  transition: 0;
+  -moz-transition: 0;
+  -o-transition: 0;
+  -webkit-transition: 0;
 }
 /* footer */
 *,
@@ -109,14 +130,14 @@ header {
   /* width: 100%; */
   /* background-color: white; */
   /* padding: 0 1vw 0 0; */
-  right: 1vw;
+  top: 1.5vh;
+  right: 3vw;
   display: flex;
   justify-content: flex-end;
 }
 .header-inner button,
 .header-inner a {
-  padding: 1.5vh 1vw 1.5vh 1vw;
-  margin: 0;
+  /* margin: 1.5vh 1vw 1.5vh 1vw; */
 }
 .nav-btn {
   position: relative;

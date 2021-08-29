@@ -76,4 +76,7 @@
   .archiveGallery {
     grid-template-columns: repeat(8, 1fr);
   }
+  .archiveGalleryItem div:first-child {
+    height: 400px;
+  }
 }
