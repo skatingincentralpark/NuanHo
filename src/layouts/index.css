@@ -85,7 +85,6 @@ header {
 }
 .nav-btn {
   position: relative;
-  padding-right: 0.3em;
 }
 footer {
   position: fixed;
@@ -103,7 +102,6 @@ footer {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 15vh 20vw;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   text-align: center;
@@ -116,16 +114,28 @@ footer {
 .header-info a {
   text-decoration: underline;
 }
+.popup-info {
+  padding: 15vh 20vw;
+}
 .popup-buttons {
   position: fixed;
   z-index: 100;
-  top: 1.5vh;
-  right: 3vw;
+  top: 0;
+  right: 0;
   user-select: none;
   z-index: 99;
+  width: 100%;
+}
+.popup-buttons div {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.5vh 3vw 0 3vw;
 }
 .popup-buttons button:last-child {
-  margin: 0;
+  margin-right: 0;
+}
+.popup-btn-container {
+  display: flex;
 }
 .bio {
   border-top: 1px dotted gray;
@@ -138,9 +148,9 @@ footer {
 }
 .cv {
   display: grid;
-  grid-template-columns: repeat(1, 3fr 7fr);
+  grid-template-columns: repeat(1, 2fr 8fr);
   text-align: left;
-  margin: 5em 0 0 0;
+  padding: 15vh 5vw;
 }
 
 /* home */
@@ -150,12 +160,25 @@ footer {
   gap: 0.25em;
   align-items: center;
   justify-content: center;
+  animation: blur 2.5s alternate infinite;
 }
 .gallery div {
   height: 65vh;
 }
 .gallery img {
   height: 100%;
+}
+@keyframes blur {
+  0% {
+    filter: none;
+  }
+  80% {
+    filter: none;
+  }
+  100% {
+    filter: saturate(100) invert(1) contrast(0.8) hue-rotate(60deg)
+      brightness(0.7);
+  }
 }
 
 /* artist text */
@@ -283,22 +306,19 @@ p {
   .gallery {
     gap: 0;
   }
-  .header-info {
+  .popup-info {
     padding: 20vh 35vw;
   }
+  .cv {
+    padding: 20vh 25vw;
+  }
+
   .slide-single {
     padding: 0;
   }
   .gallery div {
     height: 70vh;
   }
-  /* header */
-  /* .header-inner button {
-    padding-right: 1vw;
-  }
-  .header-inner a {
-    padding-left: 1vw;
-  } */
 }
 
 @media only screen and (min-width: 1499px) {
