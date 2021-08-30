@@ -11,8 +11,7 @@
 }
 
 /* hover and transitions */
-
-.archiveGalleryItem:hover div:first-child {
+.archiveGalleryItem div:first-child:hover div {
   filter: invert(1) sepia(0.5);
   transform: translateX(5px);
   transition: 0s;

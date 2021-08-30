@@ -5,15 +5,40 @@
   position: fixed;
   z-index: 96;
 }
-.archiveBtns button:hover {
-  color: white;
-}
 .archiveBtnsMore {
   display: inline;
 }
-.btnActive {
-  color: rgb(150, 150, 150);
+.btnActive::before {
+  content: "";
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  top: -1px;
+  left: -0.35px;
+  background-color: #232222;
+  width: 100%;
+  height: calc(100% + 2px);
+  padding: 0;
+  z-index: -1;
+  transition: 0.5s;
 }
+.btnActive {
+  color: white;
+  transition: 0.5s;
+}
+/* .nav-btn::after {
+  content: "";
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  top: -1px;
+  left: -0.35px;
+  background-color: #232222;
+  width: 0;
+  height: calc(100% + 2px);
+  padding: 0;
+  z-index: -1;
+} */
 .archiveBtnsMoreDropdown {
   display: inline;
 }

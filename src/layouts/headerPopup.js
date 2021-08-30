@@ -49,14 +49,20 @@ const HeaderPopup = (props) => {
       <p>Location: {about.edges[0].node.frontmatter.location}</p>
 
       <p className="bio">{about.edges[0].node.frontmatter.bio}</p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde corrupti
-        error rem ducimus quae, dolorum autem cupiditate nobis ex laboriosam a
-        pariatur accusantium quam sequi, quas distinctio! Commodi, amet. Culpa!
-        Nostrum sit, voluptatum aut aperiam sunt error optio atque fuga totam
-        incidunt? Rem dolore, sit ratione harum vero deleniti beatae, ea nostrum
-        laboriosam illum pariatur?
-      </p>
+      <div className="cv">
+        <p>2019</p>
+        <p>
+          '(De)faced', <b>Sheffer Gallery</b>, Sydney
+        </p>
+        <p>2019</p>
+        <p>
+          '(De)faced', <b>Sheffer Gallery</b>, Sydney
+        </p>
+        <p>2019</p>
+        <p>
+          '(De)faced', <b>Sheffer Gallery</b>, Sydney
+        </p>
+      </div>
       <p className="copyright">Nuan Ho © 2021 - Site by NakedLunch</p>
     </div>
   );

@@ -71,12 +71,14 @@ const Archive = (props) => {
         <div className={classes.archiveGallery}>
           {props.data.map((edge, i) => (
             <div className={classes.archiveGalleryItem} key={edge.node.id}>
-              <GatsbyImage
-                image={getImage(edge.node.frontmatter.image.childImageSharp)}
-                alt={edge.node.frontmatter.title}
-                data-index={i}
-                onClick={showLightboxHandler}
-              />
+              <div>
+                <GatsbyImage
+                  image={getImage(edge.node.frontmatter.image.childImageSharp)}
+                  alt={edge.node.frontmatter.title}
+                  data-index={i}
+                  onClick={showLightboxHandler}
+                />
+              </div>
               <div className={classes.archiveInfo}>
                 <small>{edge.node.frontmatter.date}</small>
                 <p className={classes.archiveTitle}>
