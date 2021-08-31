@@ -128,7 +128,7 @@ footer {
 }
 .popup-buttons div {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 1.5vh 3vw 0 3vw;
 }
 .popup-buttons button:last-child {
@@ -147,10 +147,24 @@ footer {
   font-size: 0.8rem;
 }
 .cv {
-  display: grid;
-  grid-template-columns: repeat(1, 2fr 8fr);
   text-align: left;
   padding: 15vh 5vw;
+}
+
+.cv span {
+  margin-bottom: 1em;
+  display: block;
+}
+
+.cv-inner {
+  display: grid;
+  grid-template-columns: repeat(1, 2fr 8fr);
+}
+
+.cv-education {
+  display: grid;
+  grid-template-columns: repeat(1, 8fr 2fr);
+  margin-bottom: 2em;
 }
 
 /* home */
@@ -176,8 +190,7 @@ footer {
     filter: none;
   }
   100% {
-    filter: saturate(100) invert(1) contrast(0.8) hue-rotate(60deg)
-      brightness(0.7);
+    filter: invert(1) contrast(0.8) hue-rotate(60deg);
   }
 }
 
@@ -269,6 +282,11 @@ p {
   }
   .btn {
     margin: 0 1.5em 0em 0;
+  }
+  .popup-buttons div {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.5vh 3vw 0 3vw;
   }
   /* buttons */
   .btn:hover::after,

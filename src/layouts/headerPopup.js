@@ -70,22 +70,36 @@ const HeaderPopup = (props) => {
 
       {showCv && (
         <div className="cv">
-          <p>2019</p>
-          <p>
-            (De)faced, <b>Sheffer Gallery</b>, Sydney
-          </p>
-          <p>2019</p>
-          <p>
-            2019 Invitational, <b>Home735 Gallery</b>, Sydney
-          </p>
-          <p>2019</p>
-          <p>
-            Group Show, <b>Home735 Gallery</b>, Sydney
-          </p>
-          <p>2019</p>
-          <p>
-            Accelerating the Fractured Whereabouts, <b>Freda's</b>, Sydney
-          </p>
+          <span>
+            <b>Education</b>
+          </span>
+          <div className="cv-education">
+            <p> National Art School Bachelors of Fine Arts (Painting) </p>
+            <p>2015-2018</p>
+            <p>National Art School Graduate Diploma</p>
+            <p>2019-2020</p>
+          </div>
+          <span>
+            <b>Exhibitions</b>
+          </span>
+          <div className="cv-inner">
+            <p>2019</p>
+            <p>
+              (De)faced, <b>Sheffer Gallery</b>, Sydney
+            </p>
+            <p>2019</p>
+            <p>
+              2019 Invitational, <b>Home735 Gallery</b>, Sydney
+            </p>
+            <p>2019</p>
+            <p>
+              Group Show, <b>Home735 Gallery</b>, Sydney
+            </p>
+            <p>2019</p>
+            <p>
+              Accelerating the Fractured Whereabouts, <b>Freda's</b>, Sydney
+            </p>
+          </div>
         </div>
       )}
       <p className="copyright">Nuan Ho © 2021 - Site by NakedLunch</p>
