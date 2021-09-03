@@ -33,6 +33,7 @@ collections:
           widget: "image",
           allow_multiple: false,
         }
+
   - name: "featuredArtwork"
     label: "Featured Artwork"
     description: "Upload all your work that you want to feature on the landing page.  Please input the order to set image positions."
@@ -51,6 +52,7 @@ collections:
           allow_multiple: false,
         }
       - { label: "Order", name: "order", widget: "number" }
+
   - name: "about"
     label: "About Page"
     folder: "content/about"
@@ -80,9 +82,24 @@ collections:
         label: Education
         widget: list
         fields:
-          - {
-              label: School and Certification,
-              name: schoolandcert,
-              widget: text,
-            }
-          - { label: Date, name: date, widget: number }
+          - { label: School, name: school, widget: string }
+          - { label: Qualification, name: qualification, widget: string }
+          - { label: Date, name: date, widget: string }
+
+  - name: "exhibitions"
+    label: "Exhibition History"
+    folder: "content/cv/exhibitions"
+    create: true
+    slug: "index"
+    media_folder: ""
+    public_folder: ""
+    path: "index"
+    summary: "exhibition item"
+    fields:
+      - name: exhibition
+        label: Exhibition
+        widget: list
+        fields:
+          - { label: Title, name: title, widget: text }
+          - { label: Location, name: location, widget: string }
+          - { label: Date, name: date, widget: string }
