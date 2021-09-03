@@ -60,7 +60,7 @@ collections:
     public_folder: ""
     path: "education/index"
     widget: "list"
-    summary: { { fields.education } }
+    summary: "{ { fields.education } }"
     fields:
       - { label: "Education", name: "education", widget: "string" }
       - { label: "Date", name: "date", widget: "string" }
