@@ -73,18 +73,18 @@ collections:
     files:
       - label: "CV Page"
         name: "cv"
-        file: "content/about/about.yml"
+        file: "content/about/about.md"
         fields:
           - name: education
-          label: Education
-          widget: list
-          fields:
-            - { label: School, name: school, widget: string }
-            - { label: Qualification, name: qualification, widget: string }
-            - { label: Date, name: date, widget: string }
+            label: Education
+            widget: list
+            fields:
+              - { label: School, name: school, widget: string }
+              - { label: Qualification, name: qualification, widget: string }
+              - { label: Date, name: date, widget: string }
       - label: "Locations Page"
         name: "locations"
-        file: "site/content/locations.yml"
+        file: "site/content/locations.md"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: markdown }
