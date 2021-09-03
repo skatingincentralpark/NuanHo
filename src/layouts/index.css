@@ -97,7 +97,8 @@ footer {
 /* header pop-up */
 .header-info {
   position: fixed;
-  background-color: white;
+  /* background-color: white; */
+  background-color: #f3f3f3;
   z-index: 98;
   top: 0;
   left: 0;
@@ -117,6 +118,9 @@ footer {
 .popup-info {
   padding: 15vh 20vw;
 }
+/* .popup-info *:not(:last-child) {
+  font-weight: 600;
+} */
 .popup-buttons {
   position: fixed;
   z-index: 100;
@@ -138,7 +142,7 @@ footer {
   display: flex;
 }
 .bio {
-  border-top: 1px dotted gray;
+  border-top: 1px solid gray;
   padding-top: 1em;
   margin-top: 3em;
 }
@@ -150,20 +154,23 @@ footer {
   text-align: left;
   padding: 15vh 5vw;
 }
-
 .cv span {
   margin-bottom: 1em;
   display: block;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid gray;
 }
-
 .cv-inner {
   display: grid;
-  grid-template-columns: repeat(1, 2fr 8fr);
+  grid-template-columns: repeat(1, 1fr 9fr);
+  gap: 0 1em;
+  margin-bottom: 2em;
 }
 
 .cv-education {
   display: grid;
   grid-template-columns: repeat(1, 8fr 2fr);
+  gap: 0 1em;
   margin-bottom: 2em;
 }
 
@@ -328,7 +335,7 @@ p {
     padding: 20vh 35vw;
   }
   .cv {
-    padding: 20vh 25vw;
+    padding: 20vh 30vw;
   }
 
   .slide-single {

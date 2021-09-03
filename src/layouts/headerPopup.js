@@ -50,19 +50,25 @@ const HeaderPopup = (props) => {
       </div>
       {!showCv && (
         <div className="popup-info">
-          <p>E: {about.edges[0].node.frontmatter.email}</p>
+          <p>
+            E: <b>{about.edges[0].node.frontmatter.email}</b>
+          </p>
           <div className="ig">
             <span>IG: </span>
-            <a
-              href="https://instagram.com/nuanhoart"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {" "}
-              {about.edges[0].node.frontmatter.instagram}
-            </a>
+            <b>
+              <a
+                href="https://instagram.com/nuanhoart"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {" "}
+                {about.edges[0].node.frontmatter.instagram}
+              </a>
+            </b>
           </div>
-          <p>Location: {about.edges[0].node.frontmatter.location}</p>
+          <p>
+            Location: <b>{about.edges[0].node.frontmatter.location}</b>
+          </p>
 
           <p className="bio">{about.edges[0].node.frontmatter.bio}</p>
         </div>
@@ -70,35 +76,61 @@ const HeaderPopup = (props) => {
 
       {showCv && (
         <div className="cv">
-          <span>
-            <b>Education</b>
-          </span>
-          <div className="cv-education">
-            <p> National Art School Bachelors of Fine Arts (Painting) </p>
-            <p>2015-2018</p>
-            <p>National Art School Graduate Diploma</p>
-            <p>2019-2020</p>
+          <div>
+            {/* Education */}
+            <span>
+              <b>Education</b>
+            </span>
+            <div className="cv-education">
+              <p>National Art School Bachelors of Fine Arts (Painting)</p>
+              <p>2015-2018</p>
+              <p>National Art School Graduate Diploma</p>
+              <p>2019-2020</p>
+            </div>
           </div>
-          <span>
-            <b>Exhibitions</b>
-          </span>
-          <div className="cv-inner">
-            <p>2019</p>
-            <p>
-              (De)faced, <b>Sheffer Gallery</b>, Sydney
-            </p>
-            <p>2019</p>
-            <p>
-              2019 Invitational, <b>Home735 Gallery</b>, Sydney
-            </p>
-            <p>2019</p>
-            <p>
-              Group Show, <b>Home735 Gallery</b>, Sydney
-            </p>
-            <p>2019</p>
-            <p>
-              Accelerating the Fractured Whereabouts, <b>Freda's</b>, Sydney
-            </p>
+          {/* Exhibitions */}
+          <div>
+            <span>
+              <b>Exhibitions</b>
+            </span>
+            <div className="cv-inner">
+              <p>2019</p>
+              <p>
+                (De)faced, <b>Sheffer Gallery</b>, Sydney
+              </p>
+              <p>2019</p>
+              <p>
+                2019 Invitational, <b>Home735 Gallery</b>, Sydney
+              </p>
+              <p>2019</p>
+              <p>
+                Group Show, <b>Home735 Gallery</b>, Sydney
+              </p>
+              <p>2019</p>
+              <p>
+                Accelerating the Fractured Whereabouts, <b>Freda's</b>, Sydney
+              </p>
+            </div>
+            {/* Prizes */}
+          </div>
+          <div>
+            <span>
+              <b>Education</b>
+            </span>
+            <div className="cv-education">
+              <p>Troy Quinliven Exhibition Prize</p>
+              <p>2018</p>
+            </div>
+          </div>
+          {/* Publications */}
+          <div>
+            <span>
+              <b>Publications</b>
+            </span>
+            <div className="cv-education">
+              <p>Art Edit Magazine Winter Issue</p>
+              <p>2021</p>
+            </div>
           </div>
         </div>
       )}

@@ -51,17 +51,16 @@ collections:
           allow_multiple: false,
         }
       - { label: "Order", name: "order", widget: "number" }
-  - name: "about"
-    label: "About Page"
-    folder: "content/about"
+  - name: "education"
+    label: "Education"
+    folder: "content/cv/education"
     create: true
     slug: "index"
     media_folder: ""
     public_folder: ""
-    path: "about/index"
+    path: "education/index"
+    widget: "list"
+    summary: { { fields.education } }
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Email", name: "email", widget: "string" }
-      - { label: "Instagram", name: "instagram", widget: "string" }
-      - { label: "Location", name: "location", widget: "string" }
-      - { label: "Bio", name: "bio", widget: "string" }
+      - { label: "Education", name: "education", widget: "string" }
+      - { label: "Date", name: "date", widget: "string" }
