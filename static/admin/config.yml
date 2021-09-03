@@ -82,73 +82,29 @@ collections:
               - { label: School, name: school, widget: string }
               - { label: Qualification, name: qualification, widget: string }
               - { label: Date, name: date, widget: string }
-
-  # - name: "education"
-  #   label: "Education"
-  #   folder: "content/cv/education"
-  #   create: true
-  #   slug: "index"
-  #   media_folder: ""
-  #   public_folder: ""
-  #   path: "index"
-  #   summary: "Education List"
-  #   fields:
-  #     - name: education
-  #       label: Education
-  #       widget: list
-  #       fields:
-  #         - { label: School, name: school, widget: string }
-  #         - { label: Qualification, name: qualification, widget: string }
-  #         - { label: Date, name: date, widget: string }
-
-  # - name: "exhibitions"
-  #   label: "Exhibitions"
-  #   folder: "content/cv/exhibitions"
-  #   create: true
-  #   slug: "index"
-  #   media_folder: ""
-  #   public_folder: ""
-  #   path: "index"
-  #   summary: "Exhibition List"
-  #   fields:
-  #     - name: exhibitions
-  #       label: Exhibitions
-  #       widget: list
-  #       fields:
-  #         - { label: Title, name: title, widget: text }
-  #         - { label: Location, name: location, widget: string }
-  #         - { label: Date, name: date, widget: string }
-
-  # - name: "prizes"
-  #   label: "Prizes"
-  #   folder: "content/cv/prizes"
-  #   create: true
-  #   slug: "index"
-  #   media_folder: ""
-  #   public_folder: ""
-  #   path: "index"
-  #   summary: "Prizes List"
-  #   fields:
-  #     - name: prizes
-  #       label: Prizes
-  #       widget: list
-  #       fields:
-  #         - { label: Title, name: title, widget: text }
-  #         - { label: Date, name: date, widget: string }
-
-  # - name: "publications"
-  #   label: "Publications"
-  #   folder: "content/cv/publications"
-  #   create: true
-  #   slug: "index"
-  #   media_folder: ""
-  #   public_folder: ""
-  #   path: "index"
-  #   summary: "Publications List"
-  #   fields:
-  #     - name: publications
-  #       label: Publications
-  #       widget: list
-  #       fields:
-  #         - { label: Title, name: title, widget: text }
-  #         - { label: Date, name: date, widget: string }
+          - name: soloexhibitions
+            label: Solo Exhibitions
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: text }
+              - { label: Location, name: location, widget: string }
+              - { label: Date, name: date, widget: string }
+          - name: groupexhibitions
+            label: Group Exhibitions
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: text }
+              - { label: Location, name: location, widget: string }
+              - { label: Date, name: date, widget: string }
+          - name: prizes
+            label: Prizes
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: text }
+              - { label: Date, name: date, widget: string }
+          - name: publications
+            label: Publications
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: text }
+              - { label: Date, name: date, widget: string }
