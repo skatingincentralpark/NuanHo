@@ -54,7 +54,7 @@ collections:
       - { label: "Order", name: "order", widget: "number" }
 
   - name: "about"
-    label: "About Page"
+    label: "About"
     folder: "content/about"
     create: true
     slug: "index"
@@ -68,38 +68,101 @@ collections:
       - { label: "Location", name: "location", widget: "string" }
       - { label: "Bio", name: "bio", widget: "string" }
 
-  - name: "education"
-    label: "Education History"
-    folder: "content/cv/education"
-    create: true
-    slug: "index"
-    media_folder: ""
-    public_folder: ""
-    path: "education/index"
-    summary: "education item"
-    fields:
-      - name: education
-        label: Education
-        widget: list
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "About Page"
+        name: "about"
+        file: "site/content/about.yml"
         fields:
-          - { label: School, name: school, widget: string }
-          - { label: Qualification, name: qualification, widget: string }
-          - { label: Date, name: date, widget: string }
+          - { label: Title, name: title, widget: string }
+          - { label: Intro, name: intro, widget: markdown }
+          - label: Team
+            name: team
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Position, name: position, widget: string }
+              - { label: Photo, name: photo, widget: image }
+      - label: "Locations Page"
+        name: "locations"
+        file: "site/content/locations.yml"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Intro, name: intro, widget: markdown }
+          - label: Locations
+            name: locations
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Address, name: address, widget: string }
 
-  - name: "exhibitions"
-    label: "Exhibition History"
-    folder: "content/cv/exhibitions"
-    create: true
-    slug: "index"
-    media_folder: ""
-    public_folder: ""
-    path: "index"
-    summary: "exhibition item"
-    fields:
-      - name: exhibition
-        label: Exhibition
-        widget: list
-        fields:
-          - { label: Title, name: title, widget: text }
-          - { label: Location, name: location, widget: string }
-          - { label: Date, name: date, widget: string }
+  # - name: "education"
+  #   label: "Education"
+  #   folder: "content/cv/education"
+  #   create: true
+  #   slug: "index"
+  #   media_folder: ""
+  #   public_folder: ""
+  #   path: "index"
+  #   summary: "Education List"
+  #   fields:
+  #     - name: education
+  #       label: Education
+  #       widget: list
+  #       fields:
+  #         - { label: School, name: school, widget: string }
+  #         - { label: Qualification, name: qualification, widget: string }
+  #         - { label: Date, name: date, widget: string }
+
+  # - name: "exhibitions"
+  #   label: "Exhibitions"
+  #   folder: "content/cv/exhibitions"
+  #   create: true
+  #   slug: "index"
+  #   media_folder: ""
+  #   public_folder: ""
+  #   path: "index"
+  #   summary: "Exhibition List"
+  #   fields:
+  #     - name: exhibitions
+  #       label: Exhibitions
+  #       widget: list
+  #       fields:
+  #         - { label: Title, name: title, widget: text }
+  #         - { label: Location, name: location, widget: string }
+  #         - { label: Date, name: date, widget: string }
+
+  # - name: "prizes"
+  #   label: "Prizes"
+  #   folder: "content/cv/prizes"
+  #   create: true
+  #   slug: "index"
+  #   media_folder: ""
+  #   public_folder: ""
+  #   path: "index"
+  #   summary: "Prizes List"
+  #   fields:
+  #     - name: prizes
+  #       label: Prizes
+  #       widget: list
+  #       fields:
+  #         - { label: Title, name: title, widget: text }
+  #         - { label: Date, name: date, widget: string }
+
+  # - name: "publications"
+  #   label: "Publications"
+  #   folder: "content/cv/publications"
+  #   create: true
+  #   slug: "index"
+  #   media_folder: ""
+  #   public_folder: ""
+  #   path: "index"
+  #   summary: "Publications List"
+  #   fields:
+  #     - name: publications
+  #       label: Publications
+  #       widget: list
+  #       fields:
+  #         - { label: Title, name: title, widget: text }
+  #         - { label: Date, name: date, widget: string }
