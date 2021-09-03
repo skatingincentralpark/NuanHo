@@ -51,48 +51,38 @@ collections:
           allow_multiple: false,
         }
       - { label: "Order", name: "order", widget: "number" }
-  - name: "testimonials"
-    label: "Testimonials"
-    widget: "list"
-    summary: "{{fields.quote}} - {{fields.author.name}}"
+  - name: "about"
+    label: "About Page"
+    folder: "content/about"
+    create: true
+    slug: "index"
+    media_folder: ""
+    public_folder: ""
+    path: "about/index"
     fields:
-      - {
-          label: Quote,
-          name: quote,
-          widget: string,
-          default: "Everything is awesome!",
-        }
-      - label: Author
-        name: author
-        widget: object
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Email", name: "email", widget: "string" }
+      - { label: "Instagram", name: "instagram", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "string" }
+
+  - name: "education"
+    label: "Education History"
+    folder: "content/cv/education"
+    create: true
+  slug: "index"
+  media_folder: ""
+  public_folder: ""
+  path: "education/index"
+  summary: "{ { fields.education } }"
+  fields:
+    - name: education
+      label: Education
+        widget: list
         fields:
-          - { label: Name, name: name, widget: string, default: "Emmet" }
-          - { label: Avatar, name: avatar, widget: image }
-
-  # - name: "education"
-  #   label: "Education"
-  #   folder: "content/cv/education"
-  #   create: true
-  #   slug: "index"
-  #   media_folder: ""
-  #   public_folder: ""
-  #   path: "education/index"
-  #   widget: "list"
-  #   summary: "{ { fields.education } }"
-  #   fields:
-  #     - { label: "Education", name: "education", widget: "string" }
-  #     - { label: "Date", name: "date", widget: "string" }
-
-  # - name: "exhibitions"
-  #   label: "Exhibitions"
-  #   folder: "content/cv/exhibitions"
-  #   create: true
-  #   slug: "index"
-  #   media_folder: ""
-  #   public_folder: ""
-  #   path: "exhibitions/index"
-  #   widget: "list"
-  #   summary: "{ { fields.exhibition } }"
-  #   fields:
-  #     - { label: "Exhibition", name: "exhibition", widget: "string" }
-  #     - { label: "Date", name: "date", widget: "string" }
+          - {
+              label: School and Certification,
+              name: schoolandcert,
+              widget: string,
+            }
+          - { label: Date, name: date, widget: number }
