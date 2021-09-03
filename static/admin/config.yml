@@ -74,7 +74,7 @@ collections:
     media_folder: ""
     public_folder: ""
     path: "education/index"
-    summary: "{ { fields.education } }"
+    summary: "education item"
     fields:
       - name: education
         label: Education
@@ -83,6 +83,6 @@ collections:
           - {
               label: School and Certification,
               name: schoolandcert,
-              widget: string,
+              widget: text,
             }
           - { label: Date, name: date, widget: number }
