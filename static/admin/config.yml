@@ -52,17 +52,22 @@ collections:
         }
       - { label: "Order", name: "order", widget: "number" }
   - name: "testimonials"
-  label: "Testimonials"
-  widget: "list"
-  summary: '{{fields.quote}} - {{fields.author.name}}'
-  fields:
-    - {label: Quote, name: quote, widget: string, default: "Everything is awesome!"}
-    - label: Author
-      name: author
-      widget: object
-      fields:
-        - {label: Name, name: name, widget: string, default: "Emmet"}
-        - {label: Avatar, name: avatar, widget: image}
+    label: "Testimonials"
+    widget: "list"
+    summary: "{{fields.quote}} - {{fields.author.name}}"
+    fields:
+      - {
+          label: Quote,
+          name: quote,
+          widget: string,
+          default: "Everything is awesome!",
+        }
+      - label: Author
+        name: author
+        widget: object
+        fields:
+          - { label: Name, name: name, widget: string, default: "Emmet" }
+          - { label: Avatar, name: avatar, widget: image }
 
   # - name: "education"
   #   label: "Education"
@@ -77,9 +82,6 @@ collections:
   #   fields:
   #     - { label: "Education", name: "education", widget: "string" }
   #     - { label: "Date", name: "date", widget: "string" }
-
-
-
 
   # - name: "exhibitions"
   #   label: "Exhibitions"
