@@ -59,8 +59,22 @@ collections:
     media_folder: ""
     public_folder: ""
     path: "education/index"
-    widget: "list"
-    summary: "{ { fields.education } }"
     fields:
-      - { label: "Education", name: "education", widget: "string" }
-      - { label: "Date", name: "date", widget: "string" }
+      - { label: "Education", name: "education", widget: "list", summary: "{ { fields.education } }", fields:
+        - { label: "School and Certficiation", name: "schoolandcert", widget: "string" }
+        - { label: "Date", name: "date", widget: "string" }
+      }
+
+  # - name: "exhibitions"
+  #   label: "Exhibitions"
+  #   folder: "content/cv/exhibitions"
+  #   create: true
+  #   slug: "index"
+  #   media_folder: ""
+  #   public_folder: ""
+  #   path: "exhibitions/index"
+  #   widget: "list"
+  #   summary: "{ { fields.exhibition } }"
+  #   fields:
+  #     - { label: "Exhibition", name: "exhibition", widget: "string" }
+  #     - { label: "Date", name: "date", widget: "string" }
