@@ -73,7 +73,7 @@ collections:
     files:
       - label: "CV Page"
         name: "cv"
-        file: "content/about/about.md"
+        file: "content/cv/index.md"
         fields:
           - name: education
             label: Education
@@ -82,18 +82,6 @@ collections:
               - { label: School, name: school, widget: string }
               - { label: Qualification, name: qualification, widget: string }
               - { label: Date, name: date, widget: string }
-      - label: "Locations Page"
-        name: "locations"
-        file: "site/content/locations.md"
-        fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Intro, name: intro, widget: markdown }
-          - label: Locations
-            name: locations
-            widget: list
-            fields:
-              - { label: Name, name: name, widget: string }
-              - { label: Address, name: address, widget: string }
 
   # - name: "education"
   #   label: "Education"
