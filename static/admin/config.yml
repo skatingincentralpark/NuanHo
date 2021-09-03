@@ -70,14 +70,14 @@ collections:
     label: "Education History"
     folder: "content/cv/education"
     create: true
-  slug: "index"
-  media_folder: ""
-  public_folder: ""
-  path: "education/index"
-  summary: "{ { fields.education } }"
-  fields:
-    - name: education
-      label: Education
+    slug: "index"
+    media_folder: ""
+    public_folder: ""
+    path: "education/index"
+    summary: "{ { fields.education } }"
+    fields:
+      - name: education
+        label: Education
         widget: list
         fields:
           - {
