@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import CV from "./cv";
+import Cv from "./cv";
 
 const HeaderPopup = (props) => {
   const [showCv, setShowCv] = useState(false);
@@ -76,7 +76,7 @@ const HeaderPopup = (props) => {
         </div>
       )}
 
-      {showCv && <CV />}
+      {showCv && <Cv />}
 
       <p className="copyright">Nuan Ho © 2021 - Site by NakedLunch</p>
     </div>

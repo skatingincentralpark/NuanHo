@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import { useStaticQuery, graphql } from "gatsby";
 
-const CV = (props) => {
+const Cv = (props) => {
   const { markdownRemark } = useStaticQuery(
     graphql`
       query {
@@ -14,9 +14,24 @@ const CV = (props) => {
               date
               school
             }
-            exhibitions {
+            groupexhibitions {
               date
+              space
               location
+              title
+            }
+            soloexhibitions {
+              date
+              space
+              location
+              title
+            }
+            prizes {
+              date
+              title
+            }
+            publications {
+              date
               title
             }
           }
@@ -33,13 +48,13 @@ const CV = (props) => {
           <b>Education</b>
         </span>
         <div className="cv-education">
-          {markdownRemark.frontmatter.education.map((item) => (
-            <>
+          {markdownRemark.frontmatter.education.map((item, i) => (
+            <Fragment key={i}>
               <p>
                 {item.school} {item.qualification}
               </p>
               <p>{item.date}</p>
-            </>
+            </Fragment>
           ))}
         </div>
       </section>
@@ -49,10 +64,14 @@ const CV = (props) => {
           <b>Solo Exhibitions</b>
         </span>
         <div className="cv-inner">
-          <p>2019</p>
-          <p>
-            (De)faced, <b>Sheffer Gallery</b>, Sydney
-          </p>
+          {markdownRemark.frontmatter.soloexhibitions.map((item, i) => (
+            <Fragment key={i}>
+              <p>{item.date}</p>
+              <p>
+                {item.title} <b>{item.space}</b>, {item.location}
+              </p>
+            </Fragment>
+          ))}
         </div>
       </section>
       {/* Solo Exhibitions */}
@@ -61,32 +80,28 @@ const CV = (props) => {
           <b>Group Exhibitions</b>
         </span>
         <div className="cv-inner">
-          <p>2019</p>
-          <p>
-            (De)faced, <b>Sheffer Gallery</b>, Sydney
-          </p>
-          <p>2019</p>
-          <p>
-            2019 Invitational, <b>Home735 Gallery</b>, Sydney
-          </p>
-          <p>2019</p>
-          <p>
-            Group Show, <b>Home735 Gallery</b>, Sydney
-          </p>
-          <p>2019</p>
-          <p>
-            Accelerating the Fractured Whereabouts, <b>Freda's</b>, Sydney
-          </p>
+          {markdownRemark.frontmatter.groupexhibitions.map((item, i) => (
+            <Fragment key={i}>
+              <p>{item.date}</p>
+              <p>
+                {item.title} <b>{item.space}</b>, {item.location}
+              </p>
+            </Fragment>
+          ))}
         </div>
       </section>
       {/* Prizes */}
       <section>
         <span>
-          <b>Education</b>
+          <b>Prizes</b>
         </span>
         <div className="cv-education">
-          <p>Troy Quinliven Exhibition Prize</p>
-          <p>2018</p>
+          {markdownRemark.frontmatter.prizes.map((item, i) => (
+            <Fragment key={i}>
+              <p>{item.title}</p>
+              <p>{item.date}</p>
+            </Fragment>
+          ))}
         </div>
       </section>
       {/* Publications */}
@@ -95,12 +110,16 @@ const CV = (props) => {
           <b>Publications</b>
         </span>
         <div className="cv-education">
-          <p>Art Edit Magazine Winter Issue</p>
-          <p>2021</p>
+          {markdownRemark.frontmatter.publications.map((item, i) => (
+            <Fragment key={i}>
+              <p>{item.title}</p>
+              <p>{item.date}</p>
+            </Fragment>
+          ))}
         </div>
       </section>
     </div>
   );
 };
 
-export default CV;
+export default Cv;
