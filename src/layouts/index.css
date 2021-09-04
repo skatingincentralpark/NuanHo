@@ -87,6 +87,7 @@ header {
   position: relative;
 }
 footer {
+  font-size: 0.8rem;
   position: fixed;
   right: 3vw;
   bottom: 3vh;
@@ -148,11 +149,12 @@ footer {
 }
 .copyright {
   margin-top: 10em;
+  margin-bottom: 5em;
   font-size: 0.8rem;
 }
 .cv {
   text-align: left;
-  padding: 15vh 5vw;
+  padding: 15vh 3vw;
 }
 .cv span {
   margin-bottom: 1em;
@@ -322,6 +324,9 @@ p {
 }
 
 @media only screen and (min-width: 596px) {
+  footer {
+    font-size: 1rem;
+  }
   .embla__slide {
     padding-top: 0;
   }
