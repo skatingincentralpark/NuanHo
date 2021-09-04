@@ -70,12 +70,5 @@ module.exports = {
         path: `${__dirname}/content/cv`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `archive`,
-        path: `${__dirname}/content/archive`,
-      },
-    },
   ],
 };

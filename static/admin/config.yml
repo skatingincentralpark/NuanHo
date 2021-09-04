@@ -55,12 +55,13 @@ collections:
 
   - name: "about"
     label: "About"
+    description: "Edit these fields to change the 'about' pop-up."
     folder: "content/about"
-    create: true
+    create: false
     slug: "index"
     media_folder: ""
     public_folder: ""
-    path: "about/index"
+    path: "index"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Email", name: "email", widget: "string" }
@@ -68,28 +69,9 @@ collections:
       - { label: "Location", name: "location", widget: "string" }
       - { label: "Bio", name: "bio", widget: "string" }
 
-  - label: "Archive"
-    name: "archive"
-    files:
-      - label: "Archive"
-        name: "archive"
-        file: "content/archive/archive.md"
-        fields:
-          - name: archive artwork
-            label: Archive Artwork
-            widget: list
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Date, name: date, widget: string }
-              - {
-                  label: "Image",
-                  name: "image",
-                  widget: "image",
-                  allow_multiple: false,
-                }
-
   - label: "CV"
     name: "cv"
+    description: "Add new fields whenever you have new solo/group exhibitions, prizes or publications."
     files:
       - label: "CV"
         name: "cv"
