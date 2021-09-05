@@ -37,11 +37,7 @@ const IndexPage = (props) => {
 export const query = graphql`
   query FeaturedArtworkQuery {
     featuredArtwork: allMarkdownRemark(
-      filter: {
-        frontmatter: {
-          image: { sourceInstanceName: { eq: "featuredartwork" } }
-        }
-      }
+      filter: { fields: { collection: { eq: "featuredartwork" } } }
       sort: { fields: frontmatter___order, order: ASC }
     ) {
       edges {

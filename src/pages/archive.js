@@ -51,11 +51,7 @@ const ArchivePage = (props) => {
 export const query = graphql`
   query ArchiveQuery {
     archive: allMarkdownRemark(
-      filter: {
-        frontmatter: {
-          image: { sourceInstanceName: { eq: "archivedartwork" } }
-        }
-      }
+      filter: { fields: { collection: { eq: "archivedartwork" } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       edges {
@@ -81,11 +77,7 @@ export const query = graphql`
       }
     }
     archiveFullSize: allMarkdownRemark(
-      filter: {
-        frontmatter: {
-          image: { sourceInstanceName: { eq: "archivedartwork" } }
-        }
-      }
+      filter: { fields: { collection: { eq: "archivedartwork" } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       edges {

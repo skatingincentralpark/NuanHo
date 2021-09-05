@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 
-media_folder: static/img
-public_folder: /img
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "archivedartwork"
@@ -11,10 +11,7 @@ collections:
     description: "Upload all your work here that you'd like to display in the archive."
     folder: "content/archived-artwork"
     create: true
-    slug: "index"
-    media_folder: ""
-    public_folder: ""
-    path: "{{title}}/index"
+    slug: "{{title}}"
     editor:
       preview: false
     fields:
@@ -39,10 +36,7 @@ collections:
     description: "Upload all your work that you want to feature on the landing page.  Please input the order to set image positions."
     folder: "content/featured-artwork"
     create: true
-    slug: "index"
-    media_folder: ""
-    public_folder: ""
-    path: "{{title}}/index"
+    slug: "{{title}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - {
@@ -58,7 +52,7 @@ collections:
     description: "Edit these fields to change the 'about' pop-up."
     folder: "content/about"
     create: false
-    slug: "index"
+    slug: "about"
     media_folder: ""
     public_folder: ""
     path: "index"
@@ -75,7 +69,7 @@ collections:
     files:
       - label: "CV"
         name: "cv"
-        file: "content/cv/index.md"
+        file: "content/cv/cv.md"
         fields:
           - name: education
             label: Education

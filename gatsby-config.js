@@ -35,11 +35,27 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `uploads`,
+        path: `${__dirname}/static/images/uploads`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         footnotes: true,
         gfm: true,
-        plugins: [],
+        plugins: [
+          {
+            resolve: `gatsby-remark-relative-images`,
+            options: {
+              // [Optional] The root of "media_folder" in your config.yml
+              // Defaults to "static"
+              staticFolderName: "static",
+            },
+          },
+        ],
       },
     },
     {
