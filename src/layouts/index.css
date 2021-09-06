@@ -154,7 +154,7 @@ footer {
 }
 .cv {
   text-align: left;
-  padding: 15vh 3vw;
+  padding: 15vh 5vw;
 }
 .cv span {
   margin-bottom: 1em;
@@ -243,17 +243,12 @@ p {
   padding: 6vh 10vw 0 10vw;
   display: flex;
 }
-/* .embla__slide div {
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: gray;
-} */
 .embla__slide div {
   left: 50%;
   transform: translateX(-50%);
-  /* background: #f6f7f8; */
+  background: #f6f7f8;
 }
-/* 
+
 .embla__slide.is-selected div:first-child {
   background-image: linear-gradient(
     to right,
@@ -275,12 +270,6 @@ p {
   -webkit-animation-timing-function: linear;
 }
 
-.temp {
-  background: blue;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 @-webkit-keyframes placeholderShimmer {
   0% {
     background-position: -500px 0;
@@ -289,7 +278,7 @@ p {
   100% {
     background-position: 500px 0;
   }
-} */
+}
 
 /* lightbox container */
 .lightbox-container {
