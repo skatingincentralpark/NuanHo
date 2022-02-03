@@ -26,6 +26,7 @@
   top: 1.5vh;
   right: 3vw;
   user-select: none;
+  animation: flash 0.5s;
 }
 .lightbox_buttons button:last-child {
   margin: 0;
@@ -50,6 +51,19 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@keyframes flash {
+  0% {
+    background: black;
+    transform: translateY(5rem);
+  }
+  75% {
+    transform: translateY(0);
+  }
+  100% {
+    background: none;
+  }
 }
 
 @media only screen and (min-width: 596px) {

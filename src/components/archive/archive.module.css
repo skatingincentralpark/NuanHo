@@ -25,7 +25,9 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 1.5em;
+}
+.archiveInfo {
+  margin-top: 1.5rem;
 }
 
 /* typography */

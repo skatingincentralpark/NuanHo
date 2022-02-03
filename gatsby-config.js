@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.nuanho.netlify.app",
-    title: "Nuan Ho",
-    description: "Official website for the Australian artist Nuan Ho.",
+    siteTitle: "Nuan Ho",
+    siteTitleDefault: "Nuan Ho",
+    hrefLang: "en",
+    siteDescription: "Official website for the Australian artist Nuan Ho.",
     author: "Nuan Ho",
     copyright: "2021 Nuan Ho and Naked Lunch",
     keywords: `art,
@@ -11,7 +13,6 @@ module.exports = {
     sydney,
     fine art,
     surreal`,
-    image: `src/images/exit-wound.jpg`,
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,

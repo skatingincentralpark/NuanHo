@@ -112,6 +112,7 @@ footer {
 }
 .popup-info {
   padding: 15vh 20vw;
+  animation: fadein 1s;
 }
 /* .popup-info *:not(:last-child) {
   font-weight: 600;
@@ -149,6 +150,16 @@ footer {
 .cv {
   text-align: left;
   padding: 15vh 5vw;
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .cv span {
   margin-bottom: 1em;
